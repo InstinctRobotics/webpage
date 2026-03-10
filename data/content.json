@@ -2,8 +2,8 @@
   "company": {
     "name": "Velaxys",
     "tagline": {
-      "it": "Empowering Industrial Robotics with State-of-the-Art Computer Vision",
-      "en": "Empowering Industrial Robotics with State-of-the-Art Computer Vision"
+      "it": "L'intelligenza che guida il movimento. Visione universale per la robotica di domani.",
+      "en": "Intelligence guiding movement. Universal vision for tomorrow's robotics."
     },
     "story": {
       "it": "Velaxys nasce dalla passione di un team giovane e ambizioso, determinato a rivoluzionare l'automazione industriale. Crediamo che il futuro della robotica risieda nella capacità delle macchine di 'vedere' e comprendere il mondo con una precisione senza precedenti. Utilizziamo le tecnologie più avanzate di Computer Vision per ottimizzare i processi produttivi, garantendo al contempo soluzioni estremamente robuste grazie a un utilizzo massiccio della simulazione digitale prima della messa in campo.",
@@ -17,6 +17,61 @@
       "it": "Vogliamo essere il punto di riferimento per il software di visione flessibile e universale. La nostra visione è un'industria dove l'integrazione tra visione e robotica è immediata, potente e adattabile a qualsiasi sfida hardware, superando i limiti dei sistemi tradizionali rigidi.",
       "en": "We aim to be the benchmark for flexible and universal vision software. Our vision is an industry where the integration between vision and robotics is immediate, powerful, and adaptable to any hardware challenge, overcoming the limits of traditional rigid systems."
     },
+    "features": {
+      "cuttingEdge": {
+        "title": { "it": "Tecnologia all'Avanguardia", "en": "Cutting-Edge Technology" },
+        "desc": {
+          "it": "Utilizziamo le architetture di Deep Learning più avanzate e costantemente aggiornate per garantire una precisione millimetrica e una capacità di adattamento superiore a qualsiasi scenario industriale complesso.",
+          "en": "We use the most advanced and constantly updated Deep Learning architectures to ensure millimeter precision and superior adaptability to any complex industrial scenario."
+        }
+      },
+      "robustness": {
+        "title": { "it": "Robustezza Industriale", "en": "Industrial Robustness" },
+        "desc": {
+          "it": "Le nostre soluzioni sono progettate per resistere alle condizioni più dure dei reparti produttivi, garantendo una continuità operativa 24/7 e una stabilità del sistema che azzera i tempi di fermo macchina imprevisti.",
+          "en": "Our solutions are designed to withstand the harshest production floor conditions, ensuring 24/7 operational continuity and system stability that eliminates unexpected downtime."
+        }
+      },
+      "simulation": {
+        "title": { "it": "Simulazione Massiccia", "en": "Massive Simulation" },
+        "desc": {
+          "it": "Ogni scenario, anche il più raro, viene validato in ambienti virtuali fotorealistici e fisicamente accurati tramite Isaac Sim, permettendo un deployment rapido, sicuro e privo di errori fin dal primo giorno.",
+          "en": "Every scenario, even the rarest, is validated in photorealistic and physically accurate virtual environments via Isaac Sim, allowing for fast, safe, and error-free deployment from day one."
+        }
+      }
+    },
+    "expertise": [
+      {
+        "id": "food",
+        "title": { "it": "Food & Beverage", "en": "Food & Beverage" },
+        "image": "https://picsum.photos/seed/food-ind/400/300"
+      },
+      {
+        "id": "welding",
+        "title": { "it": "Saldatura", "en": "Welding" },
+        "image": "https://picsum.photos/seed/welding/400/300"
+      },
+      {
+        "id": "quality",
+        "title": { "it": "Controllo Difetti", "en": "Quality Control" },
+        "image": "https://picsum.photos/seed/quality/400/300"
+      },
+      {
+        "id": "binpicking",
+        "title": { "it": "Bin Picking", "en": "Bin Picking" },
+        "image": "https://picsum.photos/seed/bin-picking-ind/400/300"
+      },
+      {
+        "id": "packaging",
+        "title": { "it": "Packaging & Palletizing", "en": "Packaging & Palletizing" },
+        "image": "https://picsum.photos/seed/packaging/400/300"
+      },
+      {
+        "id": "assembly",
+        "title": { "it": "Assemblaggio Elettronico", "en": "Electronic Assembly" },
+        "image": "https://picsum.photos/seed/electronics/400/300"
+      }
+    ],
     "stats": [
       { "label": { "it": "Precisione", "en": "Precision" }, "value": "99.9%" },
       { "label": { "it": "Accuratezza", "en": "Accuracy" }, "value": "0.1mm" },

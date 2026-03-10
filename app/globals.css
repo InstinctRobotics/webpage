@@ -3,15 +3,22 @@
 @theme {
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+  
+  --color-brand: #befd00;
+  --color-brand-dark: #8ab800;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+  
+  body {
+    @apply bg-black text-slate-200;
+  }
 }
 
 ::selection {
-  background-color: rgba(34, 211, 238, 0.3);
-  color: #fff;
+  background-color: #befd00;
+  color: #000;
 }

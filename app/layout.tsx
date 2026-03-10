@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -6,7 +6,7 @@ const inter = Inter({
   variable: '--font-sans',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-display',
 })
@@ -22,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}>
-      <body className="bg-slate-950 text-slate-50 antialiased" suppressHydrationWarning>
+    <html lang="it" className={`${inter.variable} ${outfit.variable} scroll-smooth`}>
+      <body className="bg-black text-slate-50 antialiased" suppressHydrationWarning>
         {children}
       </body>
     </html>
