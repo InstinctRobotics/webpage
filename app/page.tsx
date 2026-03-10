@@ -56,7 +56,7 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
         <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
              <Image 
-               src="/logo_no_name.png" 
+               src="/logo_vx.png" 
                alt="Velaxys Logo" 
                width={40} 
                height={40} 
