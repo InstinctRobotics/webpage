@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": { "it": "Automated Bin Picking", "en": "Automated Bin Picking" },
+    "description": {
+      "it": "Sistema di visione 3D per il prelievo di componenti disposti casualmente in contenitori industriali.",
+      "en": "3D vision system for picking randomly arranged components in industrial containers."
+    },
+    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
+    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/pr_3d_robot_vision_img_01_1875256.jpeg",
+    "tags": ["3D Vision", "ROS", "Isaac Sim"]
+  },
+  {
+    "id": 2,
+    "title": { "it": "Food Sorting AI", "en": "Food Sorting AI" },
+    "description": {
+      "it": "Riconoscimento e smistamento di prodotti alimentari con forme irregolari e variabili.",
+      "en": "Recognition and sorting of food products with irregular and variable shapes."
+    },
+    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
+    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png",
+    "tags": ["Agnostic AI", "Food Industry"]
+  },
+  {
+    "id": 3,
+    "title": { "it": "Universal Arm Integration", "en": "Universal Arm Integration" },
+    "description": {
+      "it": "Integrazione del nostro software con diversi bracci robotici tramite un'unica interfaccia agnostica.",
+      "en": "Integration of our software with different robotic arms through a single agnostic interface."
+    },
+    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
+    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/portada-6-2.jpg",
+    "tags": ["Hardware Agnostic", "ISAAC"]
+  }
+]

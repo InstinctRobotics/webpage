@@ -20,7 +20,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Unified Data
-import content from '@/data/content.json'
+import company from '@/data/company.json'
+import expertise from '@/data/expertise.json'
+import projects from '@/data/projects.json'
+import founders from '@/data/founders.json'
 
 // --- Components ---
 
@@ -51,20 +54,20 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
   ]
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/5 py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-none ${isScrolled ? 'bg-black shadow-2xl shadow-black/80 py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
+          <div className="relative w-8 h-8 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
              <Image 
-               src="/logo_no_name.png" 
+               src={company.logo} 
                alt="Velaxys Logo" 
-               width={40} 
-               height={40} 
+               width={32} 
+               height={32} 
                className="object-contain"
                referrerPolicy="no-referrer"
              />
           </div>
-          <span className="text-2xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark whitespace-nowrap">Velaxys</span>
+          <span className="text-xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-dark whitespace-nowrap">Velaxys</span>
         </button>
 
         {/* Desktop Nav */}
@@ -110,7 +113,7 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
+            className="absolute top-full left-0 w-full bg-zinc-950 border-none p-6 flex flex-col gap-4 md:hidden"
           >
             {navLinks.map((link) => (
               <a 
@@ -139,6 +142,8 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
 const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-black">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand/5 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-brand-dark/5 rounded-full blur-[120px] animate-pulse delay-1000" />
       
@@ -156,7 +161,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
             Advanced Computer Vision
           </div>
           <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tighter mb-8">
-            {content.company.tagline[lang]}
+            {company.tagline[lang]}
           </h1>
           <p className="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
             {lang === 'it' 
@@ -176,12 +181,12 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-          transition={{ duration: 1.2, delay: 0.2 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative perspective-1000 hidden lg:block"
         >
           <div className="relative z-10 rounded-none overflow-hidden border border-brand/20 shadow-2xl shadow-brand/10 group">
             <Image 
-              src="https://picsum.photos/seed/robotics-hero/1000/1200" 
+              src="https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png" 
               alt="Robot Vision" 
               width={1000}
               height={1200}
@@ -202,7 +207,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
       <div className="w-full bg-black/50 backdrop-blur-sm py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {content.company.stats.map((stat, i) => (
+            {company.stats.map((stat, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -226,18 +231,18 @@ const About = ({ lang }: { lang: 'it' | 'en' }) => {
   const features = [
     {
       icon: <Cpu className="text-brand" />,
-      title: content.company.features.cuttingEdge.title[lang],
-      desc: content.company.features.cuttingEdge.desc[lang]
+      title: company.features.cuttingEdge.title[lang],
+      desc: company.features.cuttingEdge.desc[lang]
     },
     {
       icon: <ShieldCheck className="text-brand-dark" />,
-      title: content.company.features.robustness.title[lang],
-      desc: content.company.features.robustness.desc[lang]
+      title: company.features.robustness.title[lang],
+      desc: company.features.robustness.desc[lang]
     },
     {
       icon: <Zap className="text-brand" />,
-      title: content.company.features.simulation.title[lang],
-      desc: content.company.features.simulation.desc[lang]
+      title: company.features.simulation.title[lang],
+      desc: company.features.simulation.desc[lang]
     }
   ]
 
@@ -253,16 +258,16 @@ const About = ({ lang }: { lang: 'it' | 'en' }) => {
             <h2 className="text-xs font-bold text-brand uppercase tracking-widest mb-4">{lang === 'it' ? 'Chi Siamo' : 'About Us'}</h2>
             <h3 className="text-3xl font-display font-bold mb-6">{lang === 'it' ? 'Innovazione Giovane, Risultati Solidi.' : 'Young Innovation, Solid Results.'}</h3>
             <p className="text-base text-slate-400 mb-6 leading-relaxed">
-              {content.company.story[lang]}
+              {company.story[lang]}
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mt-10">
               <div className="p-6 bg-white/5 rounded-none border border-white/10 hover:border-brand/30 transition-colors group">
                 <h4 className="text-sm font-bold mb-2 text-brand group-hover:translate-x-1 transition-transform uppercase tracking-wider">Mission</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{content.company.mission[lang]}</p>
+                <p className="text-xs text-slate-400 leading-relaxed">{company.mission[lang]}</p>
               </div>
               <div className="p-6 bg-white/5 rounded-none border border-white/10 hover:border-brand-dark/30 transition-colors group">
                 <h4 className="text-sm font-bold mb-2 text-brand-dark group-hover:translate-x-1 transition-transform uppercase tracking-wider">Vision</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{content.company.vision[lang]}</p>
+                <p className="text-xs text-slate-400 leading-relaxed">{company.vision[lang]}</p>
               </div>
             </div>
           </motion.div>
@@ -303,27 +308,42 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
-          {content.company.expertise.map((item, i) => (
+          {expertise.map((item, i) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group flex flex-col items-center"
+              initial="initial"
+              whileInView="active"
+              whileHover="active"
+              viewport={{ amount: 0.2, once: false }}
+              className="flex flex-col items-center cursor-pointer"
             >
-              <div className="relative overflow-hidden aspect-square w-full border border-white/10 mb-6">
-                <Image 
-                  src={item.image} 
-                  alt={item.title[lang]} 
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700 ease-in-out"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="relative overflow-hidden aspect-square w-full border border-zinc-800 mb-6">
+                <motion.div
+                  variants={{
+                    initial: { filter: 'grayscale(100%)', scale: 1 },
+                    active: { filter: 'grayscale(0%)', scale: 1.1 }
+                  }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full h-full relative"
+                >
+                  <Image 
+                    src={item.image} 
+                    alt={item.title[lang]} 
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
               </div>
-              <h4 className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand transition-colors text-center">
+              <motion.h4 
+                variants={{
+                  initial: { color: '#94a3b8' },
+                  active: { color: '#befd00' }
+                }}
+                className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-center transition-colors"
+              >
                 {item.title[lang]}
-              </h4>
+              </motion.h4>
             </motion.div>
           ))}
         </div>
@@ -344,7 +364,7 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {content.projects.map((project, i) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -429,7 +449,7 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {content.founders.map((founder, i) => (
+          {founders.map((founder, i) => (
             <motion.div
               key={founder.id}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -450,9 +470,6 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
                 <div className="absolute bottom-6 left-6 flex gap-3">
                   <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-none flex items-center justify-center hover:bg-brand hover:text-black transition-all hover:scale-110">
                     <Linkedin size={20} />
-                  </a>
-                  <a href={`mailto:${founder.email}`} className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-none flex items-center justify-center hover:bg-brand hover:text-black transition-all hover:scale-110">
-                    <Mail size={20} />
                   </a>
                 </div>
               </div>
@@ -480,9 +497,10 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    // Support both prefixed and non-prefixed env vars for Vercel/Local compatibility
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY
 
     if (!serviceId || !templateId || !publicKey) {
       console.warn('EmailJS credentials missing. Mocking success.')
@@ -660,7 +678,7 @@ const Footer = ({ lang }: { lang: 'it' | 'en' }) => {
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-2">
           <Image 
-            src="/logo_no_name.png" 
+            src={company.logo} 
             alt="Velaxys Logo" 
             width={32} 
             height={32} 
