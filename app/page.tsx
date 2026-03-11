@@ -54,7 +54,7 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
   ]
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-none ${isScrolled ? 'bg-black shadow-2xl shadow-black/80 py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-none ${isScrolled ? 'bg-black/90 backdrop-blur-md shadow-2xl shadow-black/80 py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="flex items-center gap-3 group">
           <div className="relative w-8 h-8 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
@@ -106,33 +106,57 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-zinc-950 border-none p-6 flex flex-col gap-4 md:hidden"
-          >
-            {navLinks.map((link) => (
-              <a 
-                key={link.name} 
-                href={link.href} 
-                className="text-lg font-medium text-slate-300"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <button 
-              onClick={() => { setLang(lang === 'it' ? 'en' : 'it'); setIsMobileMenuOpen(false); }}
-              className="flex items-center gap-2 text-lg font-medium text-cyan-400"
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-1]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div 
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="absolute top-0 right-0 h-screen w-[80%] max-w-sm bg-zinc-950 border-l border-white/5 p-10 flex flex-col gap-8 md:hidden shadow-2xl"
             >
-              <Globe size={18} />
-              {lang === 'it' ? 'English Version' : 'Versione Italiana'}
-            </button>
-          </motion.div>
+              <div className="flex justify-end mb-4">
+                <button onClick={() => setIsMobileMenuOpen(false)} className="text-slate-400 hover:text-white">
+                  <X size={32} />
+                </button>
+              </div>
+              {navLinks.map((link, i) => (
+                <motion.a 
+                  key={link.name} 
+                  href={link.href} 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="text-2xl font-display font-bold text-slate-100 hover:text-brand transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="mt-auto pt-10 border-t border-white/5"
+              >
+                <button 
+                  onClick={() => { setLang(lang === 'it' ? 'en' : 'it'); setIsMobileMenuOpen(false); }}
+                  className="flex items-center gap-3 text-lg font-bold text-brand uppercase tracking-widest"
+                >
+                  <Globe size={20} />
+                  {lang === 'it' ? 'English' : 'Italiano'}
+                </button>
+              </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
@@ -140,6 +164,8 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
 }
 
 const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
+  const isVideo = (url: string) => /\.(mp4|webm|ogg)$/i.test(url);
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-black">
       {/* Background Elements */}
@@ -160,7 +186,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
             </span>
             Advanced Computer Vision
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tighter mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tighter mb-8">
             {company.tagline[lang]}
           </h1>
           <p className="text-lg text-slate-400 mb-10 max-w-lg leading-relaxed">
@@ -184,15 +210,25 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative perspective-1000 hidden lg:block"
         >
-          <div className="relative z-10 rounded-none overflow-hidden border border-brand/20 shadow-2xl shadow-brand/10 group">
-            <Image 
-              src="https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png" 
-              alt="Robot Vision" 
-              width={1000}
-              height={1200}
-              className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
-              referrerPolicy="no-referrer"
-            />
+          <div className="relative z-10 rounded-none overflow-hidden border border-brand/20 shadow-2xl shadow-brand/10 group aspect-[5/6]">
+            {isVideo(company.heroMedia) ? (
+              <video 
+                src={company.heroMedia}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
+              />
+            ) : (
+              <Image 
+                src={company.heroMedia} 
+                alt="Robot Vision" 
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
+                referrerPolicy="no-referrer"
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
             
             <div className="absolute bottom-10 right-10 p-6 bg-brand backdrop-blur-xl rounded-none text-black shadow-2xl">
@@ -254,21 +290,28 @@ const About = ({ lang }: { lang: 'it' | 'en' }) => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <h2 className="text-xs font-bold text-brand uppercase tracking-widest mb-4">{lang === 'it' ? 'Chi Siamo' : 'About Us'}</h2>
-            <h3 className="text-3xl font-display font-bold mb-6">{lang === 'it' ? 'Innovazione Giovane, Risultati Solidi.' : 'Young Innovation, Solid Results.'}</h3>
-            <p className="text-base text-slate-400 mb-6 leading-relaxed">
+            <h3 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">{lang === 'it' ? 'Innovazione Giovane, Risultati Solidi.' : 'Young Innovation, Solid Results.'}</h3>
+            <p className="text-lg text-slate-400 mb-10 leading-relaxed">
               {company.story[lang]}
             </p>
-            <div className="grid sm:grid-cols-2 gap-6 mt-10">
-              <div className="p-6 bg-white/5 rounded-none border border-white/10 hover:border-brand/30 transition-colors group">
-                <h4 className="text-sm font-bold mb-2 text-brand group-hover:translate-x-1 transition-transform uppercase tracking-wider">Mission</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{company.mission[lang]}</p>
-              </div>
-              <div className="p-6 bg-white/5 rounded-none border border-white/10 hover:border-brand-dark/30 transition-colors group">
-                <h4 className="text-sm font-bold mb-2 text-brand-dark group-hover:translate-x-1 transition-transform uppercase tracking-wider">Vision</h4>
-                <p className="text-xs text-slate-400 leading-relaxed">{company.vision[lang]}</p>
-              </div>
+            <div className="grid sm:grid-cols-2 gap-6 mt-12">
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="p-8 bg-white/5 rounded-none border border-white/10 hover:border-brand/30 transition-all group"
+              >
+                <h4 className="text-sm font-bold mb-3 text-brand group-hover:translate-x-1 transition-transform uppercase tracking-widest">Mission</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">{company.mission[lang]}</p>
+              </motion.div>
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="p-8 bg-white/5 rounded-none border border-white/10 hover:border-brand-dark/30 transition-all group"
+              >
+                <h4 className="text-sm font-bold mb-3 text-brand-dark group-hover:translate-x-1 transition-transform uppercase tracking-widest">Vision</h4>
+                <p className="text-sm text-slate-400 leading-relaxed">{company.vision[lang]}</p>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -299,31 +342,55 @@ const About = ({ lang }: { lang: 'it' | 'en' }) => {
 }
 
 const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
-    <section id="expertise" className="py-24 bg-black">
+    <section id="expertise" className="py-24 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-xs font-bold text-brand uppercase tracking-widest mb-4">{lang === 'it' ? 'Competenze' : 'Expertise'}</h2>
-          <h3 className="text-3xl font-display font-bold">{lang === 'it' ? 'Aree di Specializzazione' : 'Specialization Areas'}</h3>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-bold text-brand uppercase tracking-widest mb-4"
+          >
+            {lang === 'it' ? 'Competenze' : 'Expertise'}
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl font-display font-bold"
+          >
+            {lang === 'it' ? 'Aree di Specializzazione' : 'Specialization Areas'}
+          </motion.h3>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
           {expertise.map((item, i) => (
             <motion.div
               key={item.id}
               initial="initial"
-              whileInView="active"
+              whileInView={isMobile ? "active" : "initial"}
               whileHover="active"
-              viewport={{ amount: 0.2, once: false }}
+              viewport={{ amount: 0.8, once: false }}
               className="flex flex-col items-center cursor-pointer"
             >
-              <div className="relative overflow-hidden aspect-square w-full border border-zinc-800 mb-6">
+              <div className="relative overflow-hidden aspect-square w-full max-w-[280px] border border-zinc-800 mb-6 group">
                 <motion.div
                   variants={{
                     initial: { filter: 'grayscale(100%)', scale: 1 },
-                    active: { filter: 'grayscale(0%)', scale: 1.1 }
+                    active: { filter: 'grayscale(0%)', scale: 1.05 }
                   }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="w-full h-full relative"
                 >
                   <Image 
@@ -333,14 +400,15 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
+                  <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               </div>
               <motion.h4 
                 variants={{
-                  initial: { color: '#94a3b8' },
-                  active: { color: '#befd00' }
+                  initial: { color: '#94a3b8', y: 0 },
+                  active: { color: '#befd00', y: -4 }
                 }}
-                className="text-xs md:text-sm font-bold uppercase tracking-[0.2em] text-center transition-colors"
+                className="text-[10px] md:text-sm font-bold uppercase tracking-[0.2em] text-center transition-all"
               >
                 {item.title[lang]}
               </motion.h4>
@@ -353,129 +421,193 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
 }
 
 const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <section id="projects" className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand uppercase tracking-widest mb-4">Portfolio</h2>
-          <h3 className="text-4xl font-display font-bold">{lang === 'it' ? 'I Nostri Progetti' : 'Our Projects'}</h3>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold text-brand uppercase tracking-widest mb-4"
+          >
+            Portfolio
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl font-display font-bold"
+          >
+            {lang === 'it' ? 'I Nostri Progetti' : 'Our Projects'}
+          </motion.h3>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial="initial"
+              whileInView={isMobile ? "active" : "initial"}
+              whileHover="active"
+              viewport={{ amount: 0.8, once: false }}
               transition={{ delay: i * 0.1 }}
-              className="group relative bg-zinc-900/50 rounded-none overflow-hidden border border-white/10 hover:border-brand/50 transition-all"
+              className="group relative bg-zinc-900/30 rounded-none overflow-hidden border border-white/5 hover:border-brand/30 transition-all duration-500"
             >
-              <div className="aspect-video relative overflow-hidden">
-                <Image 
-                  src={project.thumbnail} 
-                  alt={project.title[lang]} 
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                  <button 
-                    onClick={() => setActiveVideo(project.videoUrl)}
-                    className="w-16 h-16 bg-brand text-black rounded-none flex items-center justify-center transform group-hover:scale-110 transition-all shadow-xl shadow-brand/20 active:scale-90"
-                  >
-                    <Play fill="currentColor" size={24} />
-                  </button>
-                </div>
+              <div className="aspect-video relative overflow-hidden bg-zinc-950">
+                <motion.div
+                  variants={{
+                    initial: { opacity: 0 },
+                    active: { opacity: 1 }
+                  }}
+                  className="absolute inset-0 z-10"
+                >
+                  <video 
+                    src={project.videoUrl} 
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                </motion.div>
+                <motion.div
+                  variants={{
+                    initial: { opacity: 1 },
+                    active: { opacity: 0 }
+                  }}
+                  className="absolute inset-0"
+                >
+                  <Image 
+                    src={project.thumbnail} 
+                    alt={project.title[lang]} 
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-all" />
+                </motion.div>
               </div>
               <div className="p-8">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-white/5 rounded-none text-slate-400 border border-white/10">
+                    <span key={tag} className="text-[9px] font-bold uppercase tracking-wider px-2 py-1 bg-white/5 rounded-none text-slate-500 border border-white/5">
                       {tag}
                     </span>
                   ))}
                 </div>
                 <h4 className="text-xl font-bold mb-3 group-hover:text-brand transition-colors">{project.title[lang]}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed">{project.description[lang]}</p>
+                <p className="text-slate-400 text-sm leading-relaxed line-clamp-3">{project.description[lang]}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-
-      <AnimatePresence>
-        {activeVideo && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-6"
-            onClick={() => setActiveVideo(null)}
-          >
-            <button className="absolute top-8 right-8 text-white hover:text-brand transition-colors">
-              <X size={40} />
-            </button>
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="w-full max-w-5xl aspect-video bg-black rounded-none overflow-hidden shadow-2xl border border-brand/20"
-              onClick={e => e.stopPropagation()}
-            >
-              <video 
-                src={activeVideo} 
-                controls 
-                autoPlay 
-                className="w-full h-full"
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   )
 }
 
 const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   return (
     <section id="team" className="py-24 bg-zinc-900/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-brand uppercase tracking-widest mb-4">{lang === 'it' ? 'Il Team' : 'The Team'}</h2>
-          <h3 className="text-4xl font-display font-bold">{lang === 'it' ? 'I Fondatori' : 'The Founders'}</h3>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold text-brand uppercase tracking-widest mb-4"
+          >
+            {lang === 'it' ? 'Il Team' : 'The Team'}
+          </motion.h2>
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl font-display font-bold"
+          >
+            {lang === 'it' ? 'I Fondatori' : 'The Founders'}
+          </motion.h3>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
           {founders.map((founder, i) => (
             <motion.div
               key={founder.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="group"
+              initial="initial"
+              whileInView={isMobile ? "active" : "initial"}
+              whileHover="active"
+              viewport={{ amount: 0.8, once: false }}
+              transition={{ delay: i * 0.2, duration: 0.8 }}
+              className="group flex flex-col items-center text-center"
             >
-              <div className="relative mb-6 overflow-hidden rounded-none aspect-square border border-white/10">
-                <Image 
-                  src={founder.image} 
-                  alt={founder.name} 
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  referrerPolicy="no-referrer"
+              <div className="relative mb-8 overflow-hidden rounded-none w-48 h-48 md:w-64 md:h-64 border border-white/10 shadow-2xl shadow-black/50">
+                <motion.div
+                  variants={{
+                    initial: { filter: 'grayscale(100%)', scale: 1 },
+                    active: { filter: 'grayscale(0%)', scale: 1.1 }
+                  }}
+                  transition={{ duration: 1 }}
+                  className="w-full h-full relative"
+                >
+                  <Image 
+                    src={founder.image} 
+                    alt={founder.name} 
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </motion.div>
+                <motion.div 
+                  variants={{
+                    initial: { opacity: 0 },
+                    active: { opacity: 1 }
+                  }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-6 left-6 flex gap-3">
-                  <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-none flex items-center justify-center hover:bg-brand hover:text-black transition-all hover:scale-110">
+                <motion.div 
+                  variants={{
+                    initial: { opacity: 0, y: 16 },
+                    active: { opacity: 1, y: 0 }
+                  }}
+                  className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 transition-all duration-500"
+                >
+                  <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 bg-brand text-black rounded-none flex items-center justify-center hover:bg-white transition-all">
                     <Linkedin size={20} />
                   </a>
-                </div>
+                </motion.div>
               </div>
-              <h4 className="text-2xl font-bold mb-1 group-hover:text-brand transition-colors">{founder.name}</h4>
-              <p className="text-brand font-medium mb-4">{founder.role[lang]}</p>
-              <p className="text-slate-400">{founder.bio[lang]}</p>
+              <motion.h4 
+                variants={{
+                  initial: { color: '#ffffff' },
+                  active: { color: '#befd00' }
+                }}
+                className="text-2xl font-bold mb-1 transition-colors"
+              >
+                {founder.name}
+              </motion.h4>
+              <p className="text-brand font-medium mb-4 text-sm uppercase tracking-widest">{founder.role[lang]}</p>
+              <p className="text-slate-400 text-sm leading-relaxed max-w-xs">{founder.bio[lang]}</p>
             </motion.div>
           ))}
         </div>
@@ -498,9 +630,9 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
     e.preventDefault()
     
     // Support both prefixed and non-prefixed env vars for Vercel/Local compatibility
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || process.env.EMAILJS_SERVICE_ID
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || process.env.EMAILJS_TEMPLATE_ID
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || process.env.EMAILJS_PUBLIC_KEY
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
     if (!serviceId || !templateId || !publicKey) {
       console.warn('EmailJS credentials missing. Mocking success.')
@@ -539,8 +671,6 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-black">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent" />
-      
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -557,15 +687,6 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
             </p>
 
             <div className="space-y-6">
-              <div className="flex gap-4 items-center group cursor-pointer" onClick={() => window.location.href = 'mailto:info@velaxys.com'}>
-                <div className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-black transition-all group-hover:scale-110">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-500 uppercase">Email</p>
-                  <p className="font-medium group-hover:text-brand transition-colors">info@velaxys.com</p>
-                </div>
-              </div>
               <div className="flex gap-4 items-center group cursor-pointer" onClick={() => window.open('https://linkedin.com/company/velaxys', '_blank')}>
                 <div className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-brand-dark group-hover:bg-brand-dark group-hover:text-black transition-all group-hover:scale-110">
                   <Linkedin size={24} />
