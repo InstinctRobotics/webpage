@@ -585,17 +585,6 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
                   }}
                   className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500" 
                 />
-                <motion.div 
-                  variants={{
-                    initial: { opacity: 0, y: 16 },
-                    active: { opacity: 1, y: 0 }
-                  }}
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 transition-all duration-500"
-                >
-                  <a href={founder.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 bg-brand text-black rounded-none flex items-center justify-center hover:bg-white transition-all">
-                    <Linkedin size={20} />
-                  </a>
-                </motion.div>
               </div>
               <motion.h4 
                 variants={{
