@@ -8,7 +8,7 @@
     },
     "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
     "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/pr_3d_robot_vision_img_01_1875256.jpeg",
-    "tags": ["3D Vision", "ROS", "Isaac Sim"]
+    "tags": ["3D Vision", "Automation", "Precision"]
   },
   {
     "id": 2,
@@ -30,6 +30,6 @@
     },
     "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
     "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/portada-6-2.jpg",
-    "tags": ["Hardware Agnostic", "ISAAC"]
+    "tags": ["Hardware Agnostic", "Universal Integration"]
   }
 ]

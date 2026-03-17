@@ -1,50 +1,50 @@
 {
-  "name": "Velaxys",
-  "logo": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/logo_vx.png",
+  "name": "Instinct Robotics",
+  "logo": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/logo2.png",
   "heroMedia": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png",
   "tagline": {
-    "it": "L'intelligenza che guida il movimento. Visione universale per la robotica di domani.",
-    "en": "Intelligence guiding movement. Universal vision for tomorrow's robotics."
+    "it": "Movimento naturale, precisione umana.",
+    "en": "Natural movement, human precision."
   },
   "story": {
-    "it": "Velaxys nasce dalla passione di un team giovane e ambizioso, determinato a rivoluzionare l'automazione industriale. Crediamo che il futuro della robotica risieda nella capacità delle macchine di 'vedere' e comprendere il mondo con una precisione senza precedenti. Utilizziamo le tecnologie più avanzate di Computer Vision per ottimizzare i processi produttivi, garantendo al contempo soluzioni estremamente robuste grazie a un utilizzo massiccio della simulazione digitale prima della messa in campo.",
-    "en": "Velaxys was born from the passion of a young and ambitious team, determined to revolutionize industrial automation. We believe the future of robotics lies in the ability of machines to 'see' and understand the world with unprecedented precision. We use the most advanced Computer Vision technologies to optimize production processes, while ensuring extremely robust solutions through massive digital simulation before field deployment."
+    "it": "Instinct Robotics nasce dalla passione di un team giovane e ambizioso, determinato a rendere l'automazione fluida e intuitiva. Crediamo che il futuro della robotica risieda nella capacità delle macchine di muoversi e comprendere il mondo con la stessa naturalezza di una persona. Utilizziamo tecnologie avanzate per ottimizzare i processi produttivi, garantendo soluzioni robuste e adattabili a ogni scenario reale.",
+    "en": "Instinct Robotics was born from the passion of a young and ambitious team, determined to make automation fluid and intuitive. We believe the future of robotics lies in the ability of machines to move and understand the world with the same naturalness as a person. We use advanced technologies to optimize production processes, ensuring robust and adaptable solutions for every real-world scenario."
   },
   "mission": {
-    "it": "La nostra missione è creare un software agnostico dall'hardware che utilizza ROS e Isaac Sim, compatibile con ogni tipo di braccio robotico e camera. Portiamo l'innovazione della ricerca direttamente nelle linee di produzione, rendendo i robot più intelligenti, flessibili e affidabili, specialmente in settori come quello alimentare dove le forme sono imprevedibili.",
-    "en": "Our mission is to create hardware-agnostic software using ROS and Isaac Sim, compatible with any robotic arm and camera. We bring research innovation directly to production lines, making robots smarter, more flexible, and reliable, especially in sectors like food where shapes are unpredictable."
+    "it": "La nostra missione è rendere i robot capaci di muoversi con la naturalezza e l'intuito di una persona. Creiamo software universale che permette a ogni macchina di adattarsi istantaneamente al mondo circostante, portando l'automazione fluida in ogni settore, specialmente dove le forme sono imprevedibili.",
+    "en": "Our mission is to enable robots to move with the naturalness and intuition of a person. We create universal software that allows every machine to adapt instantly to the world around it, bringing fluid automation to every sector, especially where shapes are unpredictable."
   },
   "vision": {
-    "it": "Vogliamo essere il punto di riferimento per il software di visione flessibile e universale. La nostra visione è un'industria dove l'integrazione tra visione e robotica è immediata, potente e adattabile a qualsiasi sfida hardware, superando i limiti dei sistemi tradizionali rigidi.",
-    "en": "We aim to be the benchmark for flexible and universal vision software. Our vision is an industry where the integration between vision and robotics is immediate, powerful, and adaptable to any hardware challenge, overcoming the limits of traditional rigid systems."
+    "it": "Immaginiamo un futuro dove i robot non sono solo macchine rigide, ma collaboratori agili che comprendono e interagiscono con l'ambiente in modo organico e sicuro, superando i limiti dei sistemi tradizionali.",
+    "en": "We imagine a future where robots are not just rigid machines, but agile collaborators that understand and interact with the environment in an organic and safe way, overcoming the limits of traditional systems."
   },
   "features": {
     "cuttingEdge": {
-      "title": { "it": "Tecnologia all'Avanguardia", "en": "Cutting-Edge Technology" },
+      "title": { "it": "Intelligenza Organica", "en": "Organic Intelligence" },
       "desc": {
-        "it": "Utilizziamo le architetture di Deep Learning più avanzate e costantemente aggiornate per garantire una precisione millimetrica e una capacità di adattamento superiore a qualsiasi scenario industriale complesso.",
-        "en": "We use the most advanced and constantly updated Deep Learning architectures to ensure millimeter precision and superior adaptability to any complex industrial scenario."
+        "it": "Utilizziamo architetture di apprendimento profondo che permettono ai robot di percepire l'ambiente con una sensibilità quasi umana, adattandosi a scenari industriali complessi in tempo reale.",
+        "en": "We use deep learning architectures that allow robots to perceive the environment with near-human sensitivity, adapting to complex industrial scenarios in real time."
       }
     },
     "robustness": {
-      "title": { "it": "Robustezza Industriale", "en": "Industrial Robustness" },
+      "title": { "it": "Affidabilità Naturale", "en": "Natural Reliability" },
       "desc": {
-        "it": "Le nostre soluzioni sono progettate per resistere alle condizioni più dure dei reparti produttivi, garantendo una continuità operativa 24/7 e una stabilità del sistema che azzera i tempi di fermo macchina imprevisti.",
-        "en": "Our solutions are designed to withstand the harshest production floor conditions, ensuring 24/7 operational continuity and system stability that eliminates unexpected downtime."
+        "it": "Le nostre soluzioni sono progettate per integrarsi perfettamente nei reparti produttivi, garantendo una continuità operativa 24/7 e una stabilità che imita la resilienza dei sistemi biologici.",
+        "en": "Our solutions are designed to integrate seamlessly into production departments, ensuring 24/7 operational continuity and stability that mimics the resilience of biological systems."
       }
     },
     "simulation": {
-      "title": { "it": "Simulazione Massiccia", "en": "Massive Simulation" },
+      "title": { "it": "Validazione Avanzata", "en": "Advanced Validation" },
       "desc": {
-        "it": "Ogni scenario, anche il più raro, viene validato in ambienti virtuali fotorealistici e fisicamente accurati tramite Isaac Sim, permettendo un deployment rapido, sicuro e privo di errori fin dal primo giorno.",
-        "en": "Every scenario, even the rarest, is validated in photorealistic and physically accurate virtual environments via Isaac Sim, allowing for fast, safe, and error-free deployment from day one."
+        "it": "Ogni movimento viene perfezionato in ambienti virtuali fotorealistici, permettendo un deployment rapido e sicuro, assicurando che il robot agisca con precisione fin dal primo istante.",
+        "en": "Every movement is perfected in photorealistic virtual environments, allowing for fast and safe deployment, ensuring the robot acts with precision from the very first moment."
       }
     }
   },
   "stats": [
-    { "label": { "it": "Precisione", "en": "Precision" }, "value": "99.9%" },
-    { "label": { "it": "Accuratezza", "en": "Accuracy" }, "value": "0.1mm" },
-    { "label": { "it": "Ripetibilità", "en": "Repeatability" }, "value": "99.98%" },
-    { "label": { "it": "Latenza", "en": "Latency" }, "value": "<10ms" }
+    { "label": { "it": "Precisione", "en": "Precision" }, "value": "98.5%" },
+    { "label": { "it": "Accuratezza", "en": "Accuracy" }, "value": "0.5mm" },
+    { "label": { "it": "Ripetibilità", "en": "Repeatability" }, "value": "99.9%" },
+    { "label": { "it": "Latenza", "en": "Latency" }, "value": "<25ms" }
   ]
 }

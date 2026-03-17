@@ -7,12 +7,12 @@
   {
     "id": "welding",
     "title": { "it": "Saldatura", "en": "Welding" },
-    "image": "https://p8lyv6p9v7p9v7p9.public.blob.vercel-storage.com/expertise-welding-XyZ123.jpg"
+    "image": "https://picsum.photos/seed/welding/800/600"
   },
   {
     "id": "quality",
     "title": { "it": "Controllo Difetti", "en": "Quality Control" },
-    "image": "https://p8lyv6p9v7p9v7p9.public.blob.vercel-storage.com/expertise-quality-XyZ123.jpg"
+    "image": "https://picsum.photos/seed/quality/800/600"
   },
   {
     "id": "binpicking",
@@ -22,11 +22,11 @@
   {
     "id": "packaging",
     "title": { "it": "Packaging & Palletizing", "en": "Packaging & Palletizing" },
-    "image": "https://p8lyv6p9v7p9v7p9.public.blob.vercel-storage.com/expertise-packaging-XyZ123.jpg"
+    "image": "https://picsum.photos/seed/packaging/800/600"
   },
   {
     "id": "assembly",
     "title": { "it": "Assemblaggio Elettronico", "en": "Electronic Assembly" },
-    "image": "https://p8lyv6p9v7p9v7p9.public.blob.vercel-storage.com/expertise-assembly-XyZ123.jpg"
+    "image": "https://picsum.photos/seed/electronics/800/600"
   }
 ]

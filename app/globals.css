@@ -4,8 +4,9 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   
-  --color-brand: #befd00;
-  --color-brand-dark: #8ab800;
+  --color-brand: #4A5D4E;
+  --color-brand-dark: #2D3A31;
+  --color-accent: #D4C9B0;
 }
 
 @layer base {
@@ -15,10 +16,25 @@
   
   body {
     @apply bg-black text-slate-200;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(74, 93, 78, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 10% 20%, rgba(212, 201, 176, 0.02) 0%, transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .organic-blur {
+    filter: blur(40px);
+    opacity: 0.3;
+  }
+  
+  .nature-gradient {
+    background: linear-gradient(135deg, #4A5D4E 0%, #D4C9B0 100%);
   }
 }
 
 ::selection {
-  background-color: #befd00;
-  color: #000;
+  background-color: #4A5D4E;
+  color: #fff;
 }

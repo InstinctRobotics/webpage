@@ -12,7 +12,7 @@ const outfit = Outfit({
 })
 
 export const metadata = {
-  title: 'Velaxys | Computer Vision & Robotics',
+  title: 'Instinct Robotics | Computer Vision & Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
 }
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${outfit.variable} scroll-smooth`}>
+    <html lang="it" className={`${inter.variable} ${outfit.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="bg-black text-slate-50 antialiased" suppressHydrationWarning>
         {children}
       </body>
