@@ -1,7 +1,7 @@
 {
   "name": "Instinct Robotics",
-  "logo": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/crop.svg",
-  "heroMedia": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png",
+  "logo": "https://res.cloudinary.com/dwcmxshjw/image/upload/v1774618924/crop_vmhosi.svg",
+  "heroMedia": "https://images.unsplash.com/photo-1531746790731-6c087fdec69a?auto=format&fit=crop&q=80&w=1200",
   "tagline": {
     "it": "Movimento naturale, precisione umana.",
     "en": "Natural movement, human precision."

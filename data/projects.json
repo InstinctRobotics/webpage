@@ -6,8 +6,8 @@
       "it": "Sistema di visione 3D per il prelievo di componenti disposti casualmente in contenitori industriali.",
       "en": "3D vision system for picking randomly arranged components in industrial containers."
     },
-    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
-    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/pr_3d_robot_vision_img_01_1875256.jpeg",
+    "videoUrl": "https://raw.githubusercontent.com/intel-isl/Open3D/master/examples/test_data/vicon_px1_sim.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
     "tags": ["3D Vision", "Automation", "Precision"]
   },
   {
@@ -17,8 +17,8 @@
       "it": "Riconoscimento e smistamento di prodotti alimentari con forme irregolari e variabili.",
       "en": "Recognition and sorting of food products with irregular and variable shapes."
     },
-    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
-    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png",
+    "videoUrl": "https://raw.githubusercontent.com/intel-isl/Open3D/master/examples/test_data/vicon_px1_sim.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1516382799247-6319b1ad7dcf?auto=format&fit=crop&q=80&w=800",
     "tags": ["Agnostic AI", "Food Industry"]
   },
   {
@@ -28,8 +28,8 @@
       "it": "Integrazione del nostro software con diversi bracci robotici tramite un'unica interfaccia agnostica.",
       "en": "Integration of our software with different robotic arms through a single agnostic interface."
     },
-    "videoUrl": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/videos/simulation.mp4",
-    "thumbnail": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/portada-6-2.jpg",
+    "videoUrl": "https://raw.githubusercontent.com/intel-isl/Open3D/master/examples/test_data/vicon_px1_sim.mp4",
+    "thumbnail": "https://images.unsplash.com/photo-1565515467012-1811565551f3?auto=format&fit=crop&q=80&w=800",
     "tags": ["Hardware Agnostic", "Universal Integration"]
   }
 ]

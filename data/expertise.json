@@ -2,7 +2,7 @@
   {
     "id": "food",
     "title": { "it": "Food & Beverage", "en": "Food & Beverage" },
-    "image": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/6386815217851944681081414995.png"
+    "image": "https://images.unsplash.com/photo-1516382799247-6319b1ad7dcf?auto=format&fit=crop&q=80&w=800"
   },
   {
     "id": "welding",
@@ -17,7 +17,7 @@
   {
     "id": "binpicking",
     "title": { "it": "Bin Picking", "en": "Bin Picking" },
-    "image": "https://lrxgsp4xbbjjq9ax.public.blob.vercel-storage.com/immages/ss_visionbasics_u_picking_002_2015772.jpg"
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800"
   },
   {
     "id": "packaging",
