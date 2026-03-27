@@ -1,6 +1,6 @@
 {
   "name": "Instinct Robotics",
-  "logo": "https://res.cloudinary.com/dwcmxshjw/image/upload/v1774618924/crop_vmhosi.svg",
+  "logo": "https://res.cloudinary.com/instinctrobotics/image/upload/v1774618924/crop_vmhosi.svg",
   "heroMedia": "https://images.unsplash.com/photo-1531746790731-6c087fdec69a?auto=format&fit=crop&q=80&w=1200",
   "tagline": {
     "it": "Movimento naturale, precisione umana.",
@@ -20,21 +20,30 @@
   },
   "features": {
     "cuttingEdge": {
-      "title": { "it": "Intelligenza Organica", "en": "Organic Intelligence" },
+      "title": {
+        "it": "Intelligenza Organica",
+        "en": "Organic Intelligence"
+      },
       "desc": {
         "it": "Utilizziamo architetture di apprendimento profondo che permettono ai robot di percepire l'ambiente con una sensibilità quasi umana, adattandosi a scenari industriali complessi in tempo reale.",
         "en": "We use deep learning architectures that allow robots to perceive the environment with near-human sensitivity, adapting to complex industrial scenarios in real time."
       }
     },
     "robustness": {
-      "title": { "it": "Affidabilità Naturale", "en": "Natural Reliability" },
+      "title": {
+        "it": "Affidabilità Naturale",
+        "en": "Natural Reliability"
+      },
       "desc": {
         "it": "Le nostre soluzioni sono progettate per integrarsi perfettamente nei reparti produttivi, garantendo una continuità operativa 24/7 e una stabilità che imita la resilienza dei sistemi biologici.",
         "en": "Our solutions are designed to integrate seamlessly into production departments, ensuring 24/7 operational continuity and stability that mimics the resilience of biological systems."
       }
     },
     "simulation": {
-      "title": { "it": "Validazione Avanzata", "en": "Advanced Validation" },
+      "title": {
+        "it": "Validazione Avanzata",
+        "en": "Advanced Validation"
+      },
       "desc": {
         "it": "Ogni movimento viene perfezionato in ambienti virtuali fotorealistici, permettendo un deployment rapido e sicuro, assicurando che il robot agisca con precisione fin dal primo istante.",
         "en": "Every movement is perfected in photorealistic virtual environments, allowing for fast and safe deployment, ensuring the robot acts with precision from the very first moment."
@@ -42,9 +51,33 @@
     }
   },
   "stats": [
-    { "label": { "it": "Precisione", "en": "Precision" }, "value": "98.5%" },
-    { "label": { "it": "Accuratezza", "en": "Accuracy" }, "value": "0.5mm" },
-    { "label": { "it": "Ripetibilità", "en": "Repeatability" }, "value": "99.9%" },
-    { "label": { "it": "Latenza", "en": "Latency" }, "value": "<25ms" }
+    {
+      "label": {
+        "it": "Precisione",
+        "en": "Precision"
+      },
+      "value": "98.5%"
+    },
+    {
+      "label": {
+        "it": "Accuratezza",
+        "en": "Accuracy"
+      },
+      "value": "0.5mm"
+    },
+    {
+      "label": {
+        "it": "Ripetibilità",
+        "en": "Repeatability"
+      },
+      "value": "99.9%"
+    },
+    {
+      "label": {
+        "it": "Latenza",
+        "en": "Latency"
+      },
+      "value": "<25ms"
+    }
   ]
 }
