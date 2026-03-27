@@ -3,15 +3,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import emailjs from '@emailjs/browser'
-import { 
-  Play, 
-  Mail, 
-  Linkedin, 
-  ChevronRight, 
-  Cpu, 
-  ShieldCheck, 
-  Zap, 
-  Menu, 
+import {
+  Play,
+  Mail,
+  Linkedin,
+  ChevronRight,
+  Cpu,
+  ShieldCheck,
+  Zap,
+  Menu,
   X,
   ArrowRight,
   Globe
@@ -54,35 +54,36 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-none ${isScrolled ? 'bg-bg/90 backdrop-blur-md shadow-2xl shadow-black/80 py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
-             <Image 
-               src={company.logo} 
-               alt="Instinct Robotics Logo" 
-               width={40} 
-               height={40} 
-               className="object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
-               referrerPolicy="no-referrer"
-             />
+        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-3 relative cursor-pointer group">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-[#3C5366]/35 blur-[5px] squareed-full z-[-1]" />
+          <div className="w-8 h-8 flex items-center justify-center relative overflow-hidden transition-transform group-hover:scale-105">
+            <Image
+              src={company.logo}
+              alt="Instinct Robotics Logo"
+              width={32}
+              height={32}
+              className="object-contain brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
           </div>
-          <span className="text-2xl md:text-3xl font-display font-bold tracking-tighter text-brand whitespace-nowrap drop-shadow-[0_0_20px_rgba(60,83,102,0.4)]">INSTINCT ROBOTICS</span>
+          <span className="text-2xl md:text-3xl font-display font-medium tracking-tighter text-white whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] cursor-default">INSTINCT ROBOTICS</span>
         </button>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
+            <a
+              key={link.name}
+              href={link.href}
               className="text-[10px] font-bold text-text/70 hover:text-white transition-all relative group uppercase tracking-[0.2em]"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all group-hover:w-full" />
             </a>
           ))}
-          
+
           {/* Language Switcher */}
-          <button 
+          <button
             onClick={() => setLang(lang === 'it' ? 'en' : 'it')}
             className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-text/70 hover:text-white transition-colors group"
           >
@@ -90,8 +91,8 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
             {lang === 'it' ? 'EN' : 'IT'}
           </button>
 
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             className="px-6 py-2.5 bg-brand text-text hover:bg-accent transition-all rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl shadow-brand/10 active:scale-95 whitespace-nowrap flex items-center justify-center"
           >
             {lang === 'it' ? 'Richiedi una Demo' : 'Demo Request'}
@@ -107,14 +108,14 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[-1]"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: '100%' }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
@@ -127,9 +128,9 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
                 </button>
               </div>
               {navLinks.map((link, i) => (
-                <motion.a 
-                  key={link.name} 
-                  href={link.href} 
+                <motion.a
+                  key={link.name}
+                  href={link.href}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
@@ -139,13 +140,13 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
                   {link.name}
                 </motion.a>
               ))}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="mt-auto pt-10 border-t border-white/5"
               >
-                <button 
+                <button
                   onClick={() => { setLang(lang === 'it' ? 'en' : 'it'); setIsMobileMenuOpen(false); }}
                   className="flex items-center gap-3 text-lg font-bold text-brand uppercase tracking-widest"
                 >
@@ -168,19 +169,19 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
     <section className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-bg">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(60,83,102,0.1)_0%,transparent_70%)]" />
-      
+
       {/* Animated Grid */}
-      <div className="absolute inset-0 opacity-[0.15]" 
-           style={{ 
-             backgroundImage: `linear-gradient(to right, #3C5366 1px, transparent 1px), linear-gradient(to bottom, #3C5366 1px, transparent 1px)`,
-             backgroundSize: '40px 40px',
-             maskImage: 'radial-gradient(circle at 50% 50%, black, transparent 80%)'
-           }}>
-        <motion.div 
-          animate={{ 
+      <div className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage: `linear-gradient(to right, #3C5366 1px, transparent 1px), linear-gradient(to bottom, #3C5366 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(circle at 50% 50%, black, transparent 80%)'
+        }}>
+        <motion.div
+          animate={{
             y: [0, -40],
           }}
-          transition={{ 
+          transition={{
             duration: 2,
             repeat: Infinity,
             ease: "linear"
@@ -191,14 +192,14 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
 
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand/10 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
-      
+
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10 flex-grow">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -216,13 +217,13 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
               NATIVE INTELLIGENCE
             </motion.span>
           </motion.div>
-          <motion.h1 
+          <motion.h1
             className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-[0.95] tracking-tighter mb-8 text-text cursor-default"
           >
             {company.tagline[lang]}
           </motion.h1>
           <p className="text-lg text-text/70 mb-10 max-w-lg leading-relaxed border-l border-brand/20 pl-6">
-            {lang === 'it' 
+            {lang === 'it'
               ? 'Rendiamo i robot capaci di muoversi con la naturalezza e l\'intuito di una persona, adattandosi istantaneamente a ogni sfida.'
               : 'Enabling robots to move with the naturalness and intuition of a person, adapting instantly to every challenge.'}
           </p>
@@ -244,11 +245,11 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
         >
           <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-brand/5 group aspect-[4/5]">
             {/* Scanning Line Effect */}
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 top: ['-10%', '110%'],
               }}
-              transition={{ 
+              transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "linear"
@@ -257,7 +258,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
             />
 
             {isVideo(company.heroMedia) ? (
-              <video 
+              <video
                 src={company.heroMedia}
                 autoPlay
                 loop
@@ -266,20 +267,20 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
                 className="w-full h-full object-cover brightness-90 group-hover:brightness-100 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
               />
             ) : (
-              <Image 
-                src={company.heroMedia} 
-                alt="Robot Vision" 
+              <Image
+                src={company.heroMedia}
+                alt="Robot Vision"
                 fill
                 className="object-cover brightness-90 group-hover:brightness-100 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100"
                 referrerPolicy="no-referrer"
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-            
+
             {/* HUD Elements */}
             <div className="absolute top-6 right-6 flex flex-col gap-2 z-20">
               {[1, 2, 3].map((_, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   animate={{ opacity: [0.3, 0.8, 0.3] }}
                   transition={{ duration: 2, delay: i * 0.5, repeat: Infinity }}
@@ -295,12 +296,12 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
           </div>
 
           {/* Floating Tech Orbs */}
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               y: [0, -20, 0],
               rotate: [0, 360],
             }}
-            transition={{ 
+            transition={{
               duration: 10,
               repeat: Infinity,
               ease: "linear"
@@ -317,7 +318,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {company.stats.map((stat, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -371,14 +372,14 @@ const About = ({ lang }: { lang: 'it' | 'en' }) => {
               {company.story[lang]}
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mt-12">
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="p-8 bg-surface/50 rounded-2xl border border-white/5 hover:border-brand/30 transition-all group"
               >
                 <h4 className="text-sm font-display font-bold mb-3 text-brand group-hover:translate-x-1 transition-transform uppercase tracking-[0.2em]">Mission</h4>
                 <p className="text-base text-text/60 leading-relaxed">{company.mission[lang]}</p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -5 }}
                 className="p-8 bg-surface/50 rounded-2xl border border-white/5 hover:border-accent/30 transition-all group"
               >
@@ -428,7 +429,7 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
     <section id="expertise" className="py-24 bg-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -436,7 +437,7 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
           >
             {lang === 'it' ? 'Competenze' : 'Expertise'}
           </motion.h2>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -463,7 +464,7 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
                 <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand opacity-0 group-hover:opacity-100 transition-all duration-300 z-20" />
                 <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand opacity-0 group-hover:opacity-100 transition-all duration-300 z-20" />
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand opacity-0 group-hover:opacity-100 transition-all duration-300 z-20" />
-                
+
                 <motion.div
                   variants={{
                     initial: { opacity: 0.7, scale: 1 },
@@ -472,9 +473,9 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="w-full h-full relative"
                 >
-                  <Image 
-                    src={item.image} 
-                    alt={item.title[lang]} 
+                  <Image
+                    src={item.image}
+                    alt={item.title[lang]}
                     fill
                     className="object-cover"
                     referrerPolicy="no-referrer"
@@ -482,7 +483,7 @@ const Expertise = ({ lang }: { lang: 'it' | 'en' }) => {
                   <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </motion.div>
               </div>
-              <motion.h4 
+              <motion.h4
                 variants={{
                   initial: { color: '#7A8C98' },
                   active: { color: '#3C5366' }
@@ -513,7 +514,7 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
     <section id="projects" className="py-24 bg-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -521,7 +522,7 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
           >
             Portfolio
           </motion.h2>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -545,9 +546,9 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
             >
               <div className="aspect-video relative overflow-hidden bg-bg">
                 {/* Tech Overlay on Hover */}
-                <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none" 
-                     style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(60,83,102,0.1) 1px, rgba(60,83,102,0.1) 2px)', backgroundSize: '100% 2px' }} />
-                
+                <div className="absolute inset-0 bg-brand/5 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"
+                  style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(60,83,102,0.1) 1px, rgba(60,83,102,0.1) 2px)', backgroundSize: '100% 2px' }} />
+
                 <motion.div
                   variants={{
                     initial: { opacity: 0 },
@@ -555,8 +556,8 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
                   }}
                   className="absolute inset-0 z-10"
                 >
-                  <video 
-                    src={project.videoUrl} 
+                  <video
+                    src={project.videoUrl}
                     className="w-full h-full object-cover"
                     autoPlay
                     loop
@@ -571,9 +572,9 @@ const Projects = ({ lang }: { lang: 'it' | 'en' }) => {
                   }}
                   className="absolute inset-0"
                 >
-                  <Image 
-                    src={project.thumbnail} 
-                    alt={project.title[lang]} 
+                  <Image
+                    src={project.thumbnail}
+                    alt={project.title[lang]}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
                     referrerPolicy="no-referrer"
@@ -614,7 +615,7 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
     <section id="team" className="py-24 bg-surface/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -622,7 +623,7 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
           >
             {lang === 'it' ? 'Il Team' : 'The Team'}
           </motion.h2>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -653,23 +654,23 @@ const Founders = ({ lang }: { lang: 'it' | 'en' }) => {
                   transition={{ duration: 1 }}
                   className="w-full h-full relative"
                 >
-                  <Image 
-                    src={founder.image} 
-                    alt={founder.name} 
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
                     fill
                     className="object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   variants={{
                     initial: { opacity: 0 },
                     active: { opacity: 1 }
                   }}
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500" 
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500"
                 />
               </div>
-              <motion.h4 
+              <motion.h4
                 variants={{
                   initial: { color: '#E0E0E0' },
                   active: { color: '#3C5366' }
@@ -700,7 +701,7 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     // Support both prefixed and non-prefixed env vars for Vercel/Local compatibility
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
@@ -753,7 +754,7 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
             <h2 className="text-sm font-bold text-brand uppercase tracking-widest mb-4">{lang === 'it' ? 'Contatti' : 'Contact'}</h2>
             <h3 className="text-4xl font-display font-bold mb-8 text-text">{lang === 'it' ? 'Pronto a Innovare?' : 'Ready to Innovate?'}</h3>
             <p className="text-lg text-text/70 mb-10">
-              {lang === 'it' 
+              {lang === 'it'
                 ? 'Sia che tu stia cercando di ottimizzare la tua linea di produzione o che tu voglia unirti alla nostra missione, siamo pronti ad ascoltarti.'
                 : 'Whether you are looking to optimize your production line or want to join our mission, we are ready to listen.'}
             </p>
@@ -781,12 +782,12 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold mb-2 text-text/80">{lang === 'it' ? 'Nome' : 'Name'}</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="user_name"
                     required
                     value={formData.name}
-                    onChange={e => setFormData({...formData, name: e.target.value})}
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-bg/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-brand transition-colors text-text"
                     placeholder={lang === 'it' ? 'Il tuo nome' : 'Your name'}
                     suppressHydrationWarning
@@ -794,12 +795,12 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-bold mb-2 text-text/80">Email</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     name="user_email"
                     required
                     value={formData.email}
-                    onChange={e => setFormData({...formData, email: e.target.value})}
+                    onChange={e => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-bg/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-brand transition-colors text-text"
                     placeholder="email@example.com"
                     suppressHydrationWarning
@@ -810,16 +811,16 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
               <div>
                 <label className="block text-sm font-bold mb-2 text-text/80">{lang === 'it' ? 'Oggetto' : 'Subject'}</label>
                 <div className="grid grid-cols-2 gap-4">
-                  <button 
+                  <button
                     type="button"
-                    onClick={() => setFormData({...formData, type: 'demo'})}
+                    onClick={() => setFormData({ ...formData, type: 'demo' })}
                     className={`py-3 rounded-full border font-bold text-sm transition-all active:scale-95 flex items-center justify-center ${formData.type === 'demo' ? 'bg-brand border-brand text-text' : 'bg-bg/50 border-white/10 text-text/50 hover:border-brand/50'}`}
                   >
                     {lang === 'it' ? 'Richiedi Demo' : 'Request Demo'}
                   </button>
-                  <button 
+                  <button
                     type="button"
-                    onClick={() => setFormData({...formData, type: 'career'})}
+                    onClick={() => setFormData({ ...formData, type: 'career' })}
                     className={`py-3 rounded-full border font-bold text-sm transition-all active:scale-95 flex items-center justify-center ${formData.type === 'career' ? 'bg-brand border-brand text-text' : 'bg-bg/50 border-white/10 text-text/50 hover:border-brand/50'}`}
                   >
                     {lang === 'it' ? 'Lavora con noi' : 'Join the Team'}
@@ -829,19 +830,19 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
 
               <div>
                 <label className="block text-sm font-bold mb-2 text-text/80">{lang === 'it' ? 'Messaggio' : 'Message'}</label>
-                <textarea 
+                <textarea
                   name="message"
                   required
                   rows={4}
                   value={formData.message}
-                  onChange={e => setFormData({...formData, message: e.target.value})}
+                  onChange={e => setFormData({ ...formData, message: e.target.value })}
                   className="w-full bg-bg/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-brand transition-colors resize-none text-text"
                   placeholder={lang === 'it' ? 'Come possiamo aiutarti?' : 'How can we help you?'}
                   suppressHydrationWarning
                 />
               </div>
 
-              <button 
+              <button
                 type="submit"
                 disabled={status === 'sending'}
                 className="w-full py-4 bg-brand hover:bg-accent text-text font-bold rounded-full transition-all transform active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -873,17 +874,17 @@ const Footer = ({ lang }: { lang: 'it' | 'en' }) => {
     <footer className="py-12 border-t border-white/5 bg-bg">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-3">
-          <Image 
-            src={company.logo} 
-            alt="Instinct Robotics Logo" 
-            width={32} 
-            height={32} 
+          <Image
+            src={company.logo}
+            alt="Instinct Robotics Logo"
+            width={32}
+            height={32}
             className="object-contain brightness-0 invert opacity-80"
             referrerPolicy="no-referrer"
           />
           <span className="text-xl font-display font-bold tracking-tighter text-brand">Instinct Robotics</span>
         </div>
-        
+
         <p className="text-text/50 text-sm" suppressHydrationWarning>
           © {new Date().getFullYear()} Instinct Robotics. {lang === 'it' ? 'Tutti i diritti riservati.' : 'All rights reserved.'}
         </p>
