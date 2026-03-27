@@ -66,7 +66,7 @@ const Navbar = ({ lang, setLang }: { lang: 'it' | 'en', setLang: (l: 'it' | 'en'
               referrerPolicy="no-referrer"
             />
           </div>
-          <span className="text-2xl md:text-3xl font-display font-medium tracking-tighter text-white whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] cursor-default">INSTINCT ROBOTICS</span>
+          <span className="text-2xl md:text-3xl font-display font-bold tracking-tighter text-white whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.05)] cursor-default">INSTINCT ROBOTICS</span>
         </button>
 
         {/* Desktop Nav */}
@@ -874,15 +874,17 @@ const Footer = ({ lang }: { lang: 'it' | 'en' }) => {
     <footer className="py-12 border-t border-white/5 bg-bg">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-3">
-          <Image
-            src={company.logo}
-            alt="Instinct Robotics Logo"
-            width={32}
-            height={32}
-            className="object-contain brightness-0 invert opacity-80"
-            referrerPolicy="no-referrer"
-          />
-          <span className="text-xl font-display font-bold tracking-tighter text-brand">Instinct Robotics</span>
+          <div className="w-6 h-6 flex items-center justify-center relative overflow-hidden opacity-80 transition-opacity hover:opacity-100">
+            <Image
+              src={company.logo}
+              alt="Instinct Robotics Logo"
+              width={24}
+              height={24}
+              className="object-contain brightness-0 invert"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <span className="text-xl font-display font-bold tracking-tighter text-white uppercase transition-opacity opacity-80 hover:opacity-100">INSTINCT ROBOTICS</span>
         </div>
 
         <p className="text-text/50 text-sm" suppressHydrationWarning>
