@@ -1,4 +1,4 @@
-import { Inter, Outfit } from 'next/font/google'
+import { Inter, Orbitron } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
@@ -6,7 +6,7 @@ const inter = Inter({
   variable: '--font-sans',
 })
 
-const outfit = Outfit({
+const orbitron = Orbitron({
   subsets: ['latin'],
   variable: '--font-display',
 })
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${outfit.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="it" className={`${inter.variable} ${orbitron.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="bg-black text-slate-50 antialiased" suppressHydrationWarning>
         {children}
       </body>
