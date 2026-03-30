@@ -7,6 +7,7 @@
   --color-brand: #3C5366;
   --color-brand-dark: #1E1E1E;
   --color-accent: #7A8C98;
+  --color-accent-light: #A5B4BC;
   --color-surface: #1E1E1E;
   --color-bg: #0A0A0A;
   --color-text: #E0E0E0;
@@ -15,6 +16,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      scroll-snap-type: y mandatory;
+    }
   }
   
   body {
@@ -24,9 +32,18 @@
       radial-gradient(circle at 10% 20%, rgba(122, 140, 152, 0.05) 0%, transparent 40%);
     background-attachment: fixed;
   }
+
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 @layer utilities {
+  .scroll-snap-align-end {
+    scroll-snap-align: end !important;
+  }
+  
   .organic-blur {
     filter: blur(40px);
     opacity: 0.3;

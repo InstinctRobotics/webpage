@@ -1,83 +1,111 @@
 {
   "name": "Instinct Robotics",
   "logo": "https://res.cloudinary.com/instinctrobotics/image/upload/v1774618924/crop_vmhosi.svg",
-  "heroMedia": "https://images.unsplash.com/photo-1531746790731-6c087fdec69a?auto=format&fit=crop&q=80&w=1200",
   "tagline": {
-    "it": "Movimento naturale, precisione umana.",
-    "en": "Natural movement, human precision."
+    "en": "AI Powered Robotic\n3D Vision",
+    "it": "Visione Robotica 3D\nAlimentata dall'IA"
   },
-  "story": {
-    "it": "Instinct Robotics nasce dalla passione di un team giovane e ambizioso, determinato a rendere l'automazione fluida e intuitiva. Crediamo che il futuro della robotica risieda nella capacità delle macchine di muoversi e comprendere il mondo con la stessa naturalezza di una persona. Utilizziamo tecnologie avanzate per ottimizzare i processi produttivi, garantendo soluzioni robuste e adattabili a ogni scenario reale.",
-    "en": "Instinct Robotics was born from the passion of a young and ambitious team, determined to make automation fluid and intuitive. We believe the future of robotics lies in the ability of machines to move and understand the world with the same naturalness as a person. We use advanced technologies to optimize production processes, ensuring robust and adaptable solutions for every real-world scenario."
+  "subheadline": {
+    "en": "For industrial manufacturers seeking versatile and robust solutions, with unprecedented speed.",
+    "it": "Per le aziende industriali che cercano soluzioni versatili e robuste, con una velocità senza precedenti."
   },
-  "mission": {
-    "it": "La nostra missione è rendere i robot capaci di muoversi con la naturalezza e l'intuito di una persona. Creiamo software universale che permette a ogni macchina di adattarsi istantaneamente al mondo circostante, portando l'automazione fluida in ogni settore, specialmente dove le forme sono imprevedibili.",
-    "en": "Our mission is to enable robots to move with the naturalness and intuition of a person. We create universal software that allows every machine to adapt instantly to the world around it, bringing fluid automation to every sector, especially where shapes are unpredictable."
+  "problem": {
+    "en": "In industrial automation, standard 3D vision systems for pick-and-place are traditionally slow, rigid, and pretty expensive: legacy 3D cameras often require several seconds just to acquire a single point cloud and fail when confronted with reflective metallic parts, transparent objects, or random overlapping.\nThe result is a robotic cell that creates severe performance bottlenecks, unpredictable delays and downtime in your production line, while the robot just needs to pick up a simple object.",
+    "it": "Nell'automazione industriale, i sistemi di visione 3D standard per il pick-and-place sono tradizionalmente lenti, rigidi e piuttosto costosi: le telecamere 3D tradizionali spesso richiedono diversi secondi solo per acquisire una singola nuvola di punti e falliscono di fronte a parti metalliche riflettenti, oggetti trasparenti o sovrapposizioni casuali.\nIl risultato è una cella robotica che causa gravi colli di bottiglia, ritardi improvvisi e downtime nella linea di produzione, mentre il robot dovrebbe prelevare un semplice oggetto."
   },
-  "vision": {
-    "it": "Immaginiamo un futuro dove i robot non sono solo macchine rigide, ma collaboratori agili che comprendono e interagiscono con l'ambiente in modo organico e sicuro, superando i limiti dei sistemi tradizionali.",
-    "en": "We imagine a future where robots are not just rigid machines, but agile collaborators that understand and interact with the environment in an organic and safe way, overcoming the limits of traditional systems."
+  "outcome": {
+    "en": "Our system is fast, agile, and natively intelligent. Our neural networks enable industrial robots to perceive and interact with their environment in real time, making them pick objects like a human would, insinctively.\nThis allows our robots to pick any kind of object just by using standard 2D industrial cameras, removing the 3D cameras limitations and achieving unmatched speeds at a fraction of the cost.",
+    "it": "Il nostro sistema è veloce, agile e nativamente intelligente. Le nostre reti neurali neurali permettono ai robot industriali di percepire e interagire con l'ambiente circostante in tempo reale, consentendo loro di prelevare oggetti in modo istintivo, proprio come farebbe un essere umano.\nQuesto permette ai robot di prelevare qualsiasi tipo di oggetto utilizzando semplici telecamere industriali 2D, superando i limiti delle telecamere 3D e raggiungendo velocità ineguagliabili a una frazione del costo."
   },
   "features": {
-    "cuttingEdge": {
+    "step1": {
       "title": {
-        "it": "Intelligenza Organica",
-        "en": "Organic Intelligence"
+        "en": "1. Analysis & Simulation",
+        "it": "1. Analisi e Simulazione"
       },
       "desc": {
-        "it": "Utilizziamo architetture di apprendimento profondo che permettono ai robot di percepire l'ambiente con una sensibilità quasi umana, adattandosi a scenari industriali complessi in tempo reale.",
-        "en": "We use deep learning architectures that allow robots to perceive the environment with near-human sensitivity, adapting to complex industrial scenarios in real time."
+        "en": "We study your use case and test its behavior in a photorealistic 3D virtual environment to provide certainty before installation.",
+        "it": "Studiamo il tuo caso d'uso e ne collaudiamo il comportamento in un ambiente virtuale fotorealistico 3D per darti sicurezze prima dell'installazione."
       }
     },
-    "robustness": {
+    "step2": {
       "title": {
-        "it": "Affidabilità Naturale",
-        "en": "Natural Reliability"
+        "en": "2. Intelligent Training",
+        "it": "2. Addestramento Intelligente"
       },
       "desc": {
-        "it": "Le nostre soluzioni sono progettate per integrarsi perfettamente nei reparti produttivi, garantendo una continuità operativa 24/7 e una stabilità che imita la resilienza dei sistemi biologici.",
-        "en": "Our solutions are designed to integrate seamlessly into production departments, ensuring 24/7 operational continuity and stability that mimics the resilience of biological systems."
+        "en": "The system learns to handle a wide range of variations and unexpected events through cutting-edge AI algorithms.",
+        "it": "Il sistema impara a gestire una vasta gamma di variazioni e imprevisti grazie ad algoritmi AI all'avanguardia."
       }
     },
-    "simulation": {
+    "step3": {
       "title": {
-        "it": "Validazione Avanzata",
-        "en": "Advanced Validation"
+        "en": "3. Safe Deployment",
+        "it": "3. Deployment Sicuro"
       },
       "desc": {
-        "it": "Ogni movimento viene perfezionato in ambienti virtuali fotorealistici, permettendo un deployment rapido e sicuro, assicurando che il robot agisca con precisione fin dal primo istante.",
-        "en": "Every movement is perfected in photorealistic virtual environments, allowing for fast and safe deployment, ensuring the robot acts with precision from the very first moment."
+        "en": "Factory installation is fast and the robot operates with extreme precision from day one, ensuring immediate ROI.",
+        "it": "L'installazione in fabbrica è rapida er il robot opera con estrema precisione fin dal primo giorno, garantendo ROI immediato."
       }
     }
   },
-  "stats": [
-    {
-      "label": {
-        "it": "Precisione",
-        "en": "Precision"
-      },
-      "value": "98.5%"
+  "contact": {
+    "howItWorks": {
+      "title": { "en": "Three Simple Steps", "it": "Tre Semplici Passi" },
+      "sub": {
+        "en": "Request a demo today: we will show you the technical feasibility of your project without any commitment.",
+        "it": "Richiedi una demo oggi: ti mostreremo la fattibilità tecnica del tuo progetto senza alcun impegno."
+      }
     },
-    {
-      "label": {
-        "it": "Accuratezza",
-        "en": "Accuracy"
-      },
-      "value": "0.5mm"
+    "form": {
+      "title": { "en": "Ready to Innovate?", "it": "Pronto a Innovare?" },
+      "cta": { "en": "Contact us!", "it": "Contattaci!" },
+      "defaultMessage": {
+        "en": "I want more info, I work in...",
+        "it": "Vorrei ricevere maggiori informazioni, mi occupo di..."
+      }
     },
-    {
-      "label": {
-        "it": "Ripetibilità",
-        "en": "Repeatability"
-      },
-      "value": "99.9%"
-    },
-    {
-      "label": {
-        "it": "Latenza",
-        "en": "Latency"
-      },
-      "value": "<25ms"
+    "footer": {
+      "rights": { "en": "All rights reserved.", "it": "Tutti i diritti riservati." },
+      "privacy": { "en": "Privacy Policy", "it": "Privacy Policy" },
+      "vatLabel": { "en": "VAT", "it": "P.IVA" }
     }
-  ]
+  },
+  "legal": {
+    "vat": "IT00000000000",
+    "address": "Via Monsignor Francesco Beggiato n. 16, 37030, Montecchia di Crosara (VR)",
+    "rea": "RM-000000",
+    "capital": "€5.000,00 I.v."
+  },
+  "privacy": {
+    "title": { "en": "Privacy Policy", "it": "Informativa sulla Privacy" },
+    "lastUpdated": { "en": "Last updated: March 30, 2026", "it": "Ultimo aggiornamento: 30 Marzo 2026" },
+    "lead": {
+      "en": "At Instinct Robotics, we value your privacy. This policy outlines how we handle your data when you visit our website or contact us for demo requests.",
+      "it": "In Instinct Robotics, attribuiamo grande importanza alla tua privacy. Questa informativa illustra come gestiamo i tuoi dati quando visiti il nostro sito o ci contatti per richieste di demo."
+    },
+    "sections": [
+      {
+        "title": { "en": "Data Collection", "it": "Raccolta Dati" },
+        "desc": { 
+          "en": "We collect only the information you provide via our contact form (Email and Message).", 
+          "it": "Raccogliamo solo le informazioni fornite tramite il modulo di contatto (Email e Messaggio)." 
+        }
+      },
+      {
+        "title": { "en": "Purpose", "it": "Finalità" },
+        "desc": { 
+          "en": "Your data is used exclusively to respond to your inquiries and demonstrate technical feasibility.", 
+          "it": "I tuoi dati vengono utilizzati esclusivamente per rispondere alle tue richieste e dimostrare la fattibilità tecnica." 
+        }
+      },
+      {
+        "title": { "en": "Security", "it": "Sicurezza" },
+        "desc": { 
+          "en": "We use industry-standard encryption to protect your data.", 
+          "it": "Utilizziamo crittografia standard del settore per proteggere i tuoi dati." 
+        }
+      }
+    ]
+  }
 }
