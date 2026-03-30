@@ -22,6 +22,7 @@ import dynamic from 'next/dynamic'
 import MagneticButton from '@/components/MagneticButton'
 
 const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false })
+const ContactScene = dynamic(() => import('@/components/ContactScene'), { ssr: false })
 
 // Unified Data
 import company from '@/data/company.json'
@@ -415,7 +416,8 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
 
   return (
     <section id="contact" className="min-h-screen py-24 relative overflow-hidden bg-bg flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-6 w-full">
+      <ContactScene />
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col gap-12 items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
