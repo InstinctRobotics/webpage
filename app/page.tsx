@@ -22,6 +22,8 @@ import dynamic from 'next/dynamic'
 import MagneticButton from '@/components/MagneticButton'
 
 const HeroScene = dynamic(() => import('@/components/HeroScene'), { ssr: false })
+const SolutionScene = dynamic(() => import('@/components/SolutionScene'), { ssr: false })
+const HowItWorksScene = dynamic(() => import('@/components/HowItWorksScene'), { ssr: false })
 const ContactScene = dynamic(() => import('@/components/ContactScene'), { ssr: false })
 
 // Unified Data
@@ -229,8 +231,9 @@ const ProblemAndOutcome = ({ lang }: { lang: 'it' | 'en' }) => {
   const yBox = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   return (
-    <section id="solution" ref={ref} className="min-h-screen py-24 bg-surface/20 flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="solution" ref={ref} className="min-h-screen py-24 bg-surface/20 flex flex-col justify-center relative overflow-hidden">
+      <SolutionScene />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col gap-12 max-w-4xl mx-auto items-start">
           <motion.div
             initial={{ opacity: 0 }}
@@ -296,7 +299,8 @@ const HowItWorks = ({ lang }: { lang: 'it' | 'en' }) => {
   ]
   return (
     <section id="how-it-works" className="min-h-screen py-24 bg-bg overflow-hidden relative flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto px-6">
+      <HowItWorksScene />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
