@@ -181,7 +181,7 @@ const Hero = ({ lang }: { lang: 'it' | 'en' }) => {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden bg-bg">
+    <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden bg-bg">
       <HeroScene />
 
       {/* Background Elements */}
@@ -231,7 +231,7 @@ const ProblemAndOutcome = ({ lang }: { lang: 'it' | 'en' }) => {
   const yBox = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   return (
-    <section id="solution" ref={ref} className="min-h-screen py-24 bg-surface/20 flex flex-col justify-center relative overflow-hidden">
+    <section id="solution" ref={ref} className="py-32 bg-surface/20 flex flex-col justify-center relative overflow-hidden">
       <SolutionScene />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col gap-12 max-w-4xl mx-auto items-start">
@@ -298,7 +298,7 @@ const HowItWorks = ({ lang }: { lang: 'it' | 'en' }) => {
     { icon: <ShieldCheck />, step: company.features.step3 },
   ]
   return (
-    <section id="how-it-works" className="min-h-screen py-24 bg-bg overflow-hidden relative flex flex-col justify-center">
+    <section id="how-it-works" className="py-32 bg-bg overflow-hidden relative flex flex-col justify-center">
       <HowItWorksScene />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -419,7 +419,7 @@ const Contact = ({ lang }: { lang: 'it' | 'en' }) => {
   }
 
   return (
-    <section id="contact" className="min-h-screen py-24 relative overflow-hidden bg-bg flex flex-col justify-center">
+    <section id="contact" className="py-32 relative overflow-hidden bg-bg flex flex-col justify-center">
       <ContactScene />
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
         <div className="flex flex-col gap-12 items-center text-center">

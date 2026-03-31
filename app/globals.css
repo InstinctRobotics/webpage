@@ -15,18 +15,12 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-  }
-  
-  @media (min-width: 1024px) {
-    html {
-      scroll-snap-type: y mandatory;
-    }
+    @apply scroll-smooth antialiased;
+    background-color: var(--color-bg);
   }
   
   body {
-    @apply bg-bg text-text antialiased;
+    @apply bg-bg text-text min-h-screen overflow-x-hidden selection:bg-brand selection:text-white;
     background-image: 
       radial-gradient(circle at 50% 50%, rgba(60, 83, 102, 0.1) 0%, transparent 60%),
       radial-gradient(circle at 10% 20%, rgba(122, 140, 152, 0.05) 0%, transparent 40%);
