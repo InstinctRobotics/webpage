@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${orbitron.variable} scroll-smooth`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${orbitron.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="bg-black text-slate-50 antialiased" suppressHydrationWarning>
         {children}
       </body>
