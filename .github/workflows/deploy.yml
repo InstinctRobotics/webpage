@@ -26,8 +26,8 @@ jobs:
           echo "VERCEL_FLAGS=$VERCEL_ENV_FLAGS" >> $GITHUB_ENV
         env:
           BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
-          BWS_IDENTITY_URL: https://identity.bitwarden.eu
-          BWS_API_URL: https://api.bitwarden.eu
+          BWS_IDENTITY_URL: https://vault.bitwarden.eu/identity
+          BWS_API_URL: https://vault.bitwarden.eu/api
 
       - name: Deploy to Vercel
         run: |
