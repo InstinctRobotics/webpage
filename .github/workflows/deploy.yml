@@ -21,7 +21,7 @@ jobs:
       - name: Fetch All Secrets from Project
         id: secrets_step
         run: |
-          SECRETS_JSON=$(bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0)
+          SECRETS_JSON=$(bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0 --identity-url https://identity.bitwarden.eu --api-url https://api.bitwarden.eu)
           VERCEL_ENV_FLAGS=$(echo $SECRETS_JSON | jq -r '.[] | "--env \(.key)=\(.value)"' | tr '\n' ' ')
           echo "VERCEL_FLAGS=$VERCEL_ENV_FLAGS" >> $GITHUB_ENV
         env:
