@@ -561,7 +561,7 @@ const Footer = ({ lang }: { lang: 'it' | 'en' }) => {
             <span className="text-sm font-bold text-text/50 group-hover:text-white transition-colors">LinkedIn</span>
           </a>
           <a
-            href="mailto:info@instinct-robotics.com"
+            href="mailto:info@instinctrobotics.ai"
             className="flex items-center gap-3 group"
           >
             <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text/50 group-hover:bg-brand group-hover:text-white transition-all">
