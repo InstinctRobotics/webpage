@@ -17,6 +17,13 @@ jobs:
           curl -LO "https://github.com/bitwarden/sdk/releases/download/bws-v0.4.0/bws-x86_64-unknown-linux-gnu-0.4.0.zip"
           unzip bws-x86_64-unknown-linux-gnu-0.4.0.zip
           sudo mv bws /usr/local/bin/
+      
+      - name: Debug token
+        run: |
+          echo "Token length: ${#BWS_ACCESS_TOKEN}"
+          echo "Token prefix: ${BWS_ACCESS_TOKEN:0:10}"
+        env:
+          BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
 
       - name: Fetch All Secrets from Project
         id: secrets_step
