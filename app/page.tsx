@@ -551,7 +551,7 @@ const Footer = ({ lang }: { lang: 'it' | 'en' }) => {
 
         <div className="flex gap-8 items-center">
           <a
-            href="https://linkedin.com/company/instinct-robotics"
+            href="https://linkedin.com/company/instinctrobotics"
             target="_blank"
             className="flex items-center gap-3 group"
           >
