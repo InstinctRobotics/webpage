@@ -10,7 +10,15 @@ import company from '@/data/company.json'
 
 const ContactScene = dynamic(() => import('@/components/ContactScene'), { ssr: false })
 
-export default function Contact({ lang }: { lang: 'it' | 'en' }) {
+export default function Contact({
+  lang,
+  className = 'py-32',
+  cardClassName = 'max-w-6xl'
+}: {
+  lang: 'it' | 'en'
+  className?: string
+  cardClassName?: string
+}) {
   const form = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState(() => {
     let initialEmail = ''
@@ -69,17 +77,17 @@ export default function Contact({ lang }: { lang: 'it' | 'en' }) {
   }
 
   return (
-    <section id="contact" className="py-32 relative overflow-hidden bg-bg flex flex-col justify-center">
+    <section id="contact" className={`relative overflow-hidden bg-bg flex flex-col justify-center ${className}`}>
       <ContactScene />
       <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
-        <div className="flex flex-col gap-12 items-center text-center">
+        <div className="flex flex-col gap-6 md:gap-8 items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <h4 className="text-4xl font-display font-bold mb-8 text-text">
+            <h4 className="text-4xl font-display font-bold text-text whitespace-pre-line">
               {company.contact.form.title[lang]}
               {company.contact.form.cta[lang] ? ` ${company.contact.form.cta[lang]}` : ''}
             </h4>
@@ -90,7 +98,7 @@ export default function Contact({ lang }: { lang: 'it' | 'en' }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="w-full max-w-3xl p-8 md:p-12 bg-surface/50 rounded-[3rem] border border-white/5 shadow-2xl backdrop-blur-xl relative"
+            className={`w-full p-8 md:py-12 md:px-16 bg-surface/50 rounded-[3rem] border border-white/5 shadow-2xl backdrop-blur-xl relative ${cardClassName}`}
           >
             {status === 'success' ? (
               <div className="text-center py-12">
