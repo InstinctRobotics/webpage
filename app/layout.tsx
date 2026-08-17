@@ -15,6 +15,9 @@ const orbitron = Orbitron({
 export const metadata: Metadata = {
   title: 'Instinct Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
+  verification: {
+    google: 'So7ichSa38bUEiF4sx16pD3PHNpTe-wAwkPQZF5MFKg',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
