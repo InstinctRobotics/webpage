@@ -12,10 +12,14 @@ const ContactScene = dynamic(() => import('@/components/ContactScene'), { ssr: f
 
 export default function Contact({
   lang,
+  title,
+  cta,
   className = 'py-32',
   cardClassName = 'max-w-6xl'
 }: {
   lang: 'it' | 'en'
+  title?: { en: string; it: string }
+  cta?: { en: string; it: string }
   className?: string
   cardClassName?: string
 }) {
@@ -88,8 +92,8 @@ export default function Contact({
             className="max-w-5xl mx-auto"
           >
             <h4 className="text-4xl font-display font-bold text-text whitespace-pre-line">
-              {company.contact.form.title[lang]}
-              {company.contact.form.cta[lang] ? ` ${company.contact.form.cta[lang]}` : ''}
+              {title ? title[lang] : company.contact.form.title[lang]}
+              {(cta ? cta[lang] : company.contact.form.cta[lang]) ? ` ${cta ? cta[lang] : company.contact.form.cta[lang]}` : ''}
             </h4>
           </motion.div>
 

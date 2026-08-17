@@ -54,7 +54,13 @@ export default function RaptOS() {
 
       {/* Main Hero Contact Section */}
       <div className="flex-1 w-full flex flex-col">
-        <Contact lang={lang} className="w-full h-full flex-1 flex flex-col justify-center py-4" cardClassName="max-w-4xl" />
+        <Contact
+          lang={lang}
+          title={company.contact.raptOsForm.title}
+          cta={company.contact.raptOsForm.cta}
+          className="w-full h-full flex-1 flex flex-col justify-center py-4"
+          cardClassName="max-w-4xl"
+        />
       </div>
 
       {/* Footer */}

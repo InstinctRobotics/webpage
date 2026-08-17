@@ -62,14 +62,24 @@
     },
     "form": {
       "title": {
-        "en": "Require early access!",
-        "it": "Richiedi accesso anticipato!"
+        "en": "Ready to Innovate?",
+        "it": "Pronto a Innovare?"
       },
       "cta": {
-        "en": "",
-        "it": ""
+        "en": "Contact us!",
+        "it": "Contattaci!"
       },
       "defaultMessage": {
+        "en": "",
+        "it": ""
+      }
+    },
+    "raptOsForm": {
+      "title": {
+        "en": "Request early access\nto Rapt-OS",
+        "it": "Richiedi accesso anticipato\na Rapt-OS"
+      },
+      "cta": {
         "en": "",
         "it": ""
       }
