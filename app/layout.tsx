@@ -14,6 +14,9 @@ const orbitron = Orbitron({
 export const metadata = {
   title: 'Instinct Robotics | Computer Vision & Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
+  icons: {
+    icon: '/icon.svg',
+  },
 }
 
 export default function RootLayout({

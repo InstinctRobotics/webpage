@@ -51,24 +51,42 @@
   },
   "contact": {
     "howItWorks": {
-      "title": { "en": "Three Simple Steps", "it": "Tre Semplici Passi" },
+      "title": {
+        "en": "Three Simple Steps",
+        "it": "Tre Semplici Passi"
+      },
       "sub": {
         "en": "Request a demo today: we will show you the technical feasibility of your project without any commitment.",
         "it": "Richiedi una demo oggi: ti mostreremo la fattibilità tecnica del tuo progetto senza alcun impegno."
       }
     },
     "form": {
-      "title": { "en": "Ready to Innovate?", "it": "Pronto a Innovare?" },
-      "cta": { "en": "Contact us!", "it": "Contattaci!" },
+      "title": {
+        "en": "Require early access\nto Rapt-OS",
+        "it": "Richiedi accesso anticipato\na Rapt-OS"
+      },
+      "cta": {
+        "en": "",
+        "it": ""
+      },
       "defaultMessage": {
-        "en": "I want more info, I work in...",
-        "it": "Vorrei ricevere maggiori informazioni, mi occupo di..."
+        "en": "",
+        "it": ""
       }
     },
     "footer": {
-      "rights": { "en": "All rights reserved.", "it": "Tutti i diritti riservati." },
-      "privacy": { "en": "Privacy Policy", "it": "Privacy Policy" },
-      "vatLabel": { "en": "VAT", "it": "P.IVA" }
+      "rights": {
+        "en": "All rights reserved.",
+        "it": "Tutti i diritti riservati."
+      },
+      "privacy": {
+        "en": "Privacy Policy",
+        "it": "Privacy Policy"
+      },
+      "vatLabel": {
+        "en": "VAT",
+        "it": "P.IVA"
+      }
     }
   },
   "legal": {
@@ -78,32 +96,47 @@
     "capital": "€5.000,00 I.v."
   },
   "privacy": {
-    "title": { "en": "Privacy Policy", "it": "Informativa sulla Privacy" },
-    "lastUpdated": { "en": "Last updated: March 30, 2026", "it": "Ultimo aggiornamento: 30 Marzo 2026" },
+    "title": {
+      "en": "Privacy Policy",
+      "it": "Informativa sulla Privacy"
+    },
+    "lastUpdated": {
+      "en": "Last updated: March 30, 2026",
+      "it": "Ultimo aggiornamento: 30 Marzo 2026"
+    },
     "lead": {
       "en": "At Instinct Robotics, we value your privacy. This policy outlines how we handle your data when you visit our website or contact us for demo requests.",
       "it": "In Instinct Robotics, attribuiamo grande importanza alla tua privacy. Questa informativa illustra come gestiamo i tuoi dati quando visiti il nostro sito o ci contatti per richieste di demo."
     },
     "sections": [
       {
-        "title": { "en": "Data Collection", "it": "Raccolta Dati" },
-        "desc": { 
-          "en": "We collect only the information you provide via our contact form (Email and Message).", 
-          "it": "Raccogliamo solo le informazioni fornite tramite il modulo di contatto (Email e Messaggio)." 
+        "title": {
+          "en": "Data Collection",
+          "it": "Raccolta Dati"
+        },
+        "desc": {
+          "en": "We collect only the information you provide via our contact form (Email and Message).",
+          "it": "Raccogliamo solo le informazioni fornite tramite il modulo di contatto (Email e Messaggio)."
         }
       },
       {
-        "title": { "en": "Purpose", "it": "Finalità" },
-        "desc": { 
-          "en": "Your data is used exclusively to respond to your inquiries and demonstrate technical feasibility.", 
-          "it": "I tuoi dati vengono utilizzati esclusivamente per rispondere alle tue richieste e dimostrare la fattibilità tecnica." 
+        "title": {
+          "en": "Purpose",
+          "it": "Finalità"
+        },
+        "desc": {
+          "en": "Your data is used exclusively to respond to your inquiries and demonstrate technical feasibility.",
+          "it": "I tuoi dati vengono utilizzati esclusivamente per rispondere alle tue richieste e dimostrare la fattibilità tecnica."
         }
       },
       {
-        "title": { "en": "Security", "it": "Sicurezza" },
-        "desc": { 
-          "en": "We use industry-standard encryption to protect your data.", 
-          "it": "Utilizziamo crittografia standard del settore per proteggere i tuoi dati." 
+        "title": {
+          "en": "Security",
+          "it": "Sicurezza"
+        },
+        "desc": {
+          "en": "We use industry-standard encryption to protect your data.",
+          "it": "Utilizziamo crittografia standard del settore per proteggere i tuoi dati."
         }
       }
     ]
