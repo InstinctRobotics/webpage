@@ -102,7 +102,7 @@ export default function Contact({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className={`w-full p-8 md:py-12 md:px-16 bg-surface/50 rounded-[3rem] border border-white/5 shadow-2xl backdrop-blur-xl relative ${cardClassName}`}
+            className={`w-full p-8 md:py-12 md:px-16 bg-surface/50 rounded-[1rem] border border-white/5 shadow-2xl backdrop-blur-xl relative ${cardClassName}`}
           >
             {status === 'success' ? (
               <div className="text-center py-12">
@@ -132,7 +132,7 @@ export default function Contact({
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-bg/50 border border-white/10 rounded-2xl px-6 py-4 text-text focus:outline-none focus:border-brand/50 transition-colors placeholder:text-text/50"
+                    className="w-full bg-bg/50 border border-white/10 rounded-xl px-6 py-4 text-text focus:outline-none focus:border-brand/50 transition-colors placeholder:text-text/50"
                     placeholder="Email"
                   />
                 </div>
@@ -147,7 +147,7 @@ export default function Contact({
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-bg/50 border border-white/10 rounded-2xl px-6 py-4 text-text focus:outline-none focus:border-brand/50 transition-colors placeholder:text-text/50"
+                    className="w-full bg-bg/50 border border-white/10 rounded-xl px-6 py-4 text-text focus:outline-none focus:border-brand/50 transition-colors placeholder:text-text/50"
                     placeholder={lang === 'it' ? 'Messaggio (Opzionale)' : 'Message (Optional)'}
                   />
                 </div>
@@ -156,7 +156,7 @@ export default function Contact({
                   type="submit"
                   disabled={status === 'sending'}
                   magnetic={false}
-                  className="w-full py-5 rounded-2xl bg-brand font-bold text-lg active:scale-[0.98] transition-all flex items-center justify-center gap-3 text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-brand/20 hover:shadow-text/20"
+                  className="w-full py-5 rounded-xl bg-brand font-bold text-lg active:scale-[0.98] transition-all flex items-center justify-center gap-3 text-white disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-brand/20 hover:shadow-text/20"
                 >
                   {status === 'sending' ? (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
