@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Inter, Orbitron } from 'next/font/google'
 import './globals.css'
 
@@ -11,11 +12,19 @@ const orbitron = Orbitron({
   variable: '--font-display',
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Instinct Robotics | Computer Vision & Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
   icons: {
-    icon: '/icon.svg',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon-48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180' },
+    ],
   },
 }
 
