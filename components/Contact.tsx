@@ -12,10 +12,17 @@ const ContactScene = dynamic(() => import('@/components/ContactScene'), { ssr: f
 
 export default function Contact({ lang }: { lang: 'it' | 'en' }) {
   const form = useRef<HTMLFormElement>(null)
-  const [formData, setFormData] = useState({
-    email: '',
-    type: 'demo',
-    message: ''
+  const [formData, setFormData] = useState(() => {
+    let initialEmail = ''
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      initialEmail = params.get('email') || ''
+    }
+    return {
+      email: initialEmail,
+      type: 'demo',
+      message: ''
+    }
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
@@ -102,11 +109,14 @@ export default function Contact({ lang }: { lang: 'it' | 'en' }) {
             ) : (
               <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-xs font-bold text-text/50 uppercase tracking-widest mb-2 ml-1 text-left">
+                  <label htmlFor="email" className="block text-xs font-bold text-text/50 uppercase tracking-widest mb-2 ml-1 text-left">
                     Email
                   </label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -116,10 +126,12 @@ export default function Contact({ lang }: { lang: 'it' | 'en' }) {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-text/50 uppercase tracking-widest mb-2 ml-1 text-left">
+                  <label htmlFor="message" className="block text-xs font-bold text-text/50 uppercase tracking-widest mb-2 ml-1 text-left">
                     {lang === 'it' ? 'Messaggio (Opzionale)' : 'Message (Optional)'}
                   </label>
                   <textarea
+                    id="message"
+                    name="message"
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
