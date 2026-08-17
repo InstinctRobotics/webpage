@@ -13,7 +13,7 @@ const orbitron = Orbitron({
 })
 
 export const metadata: Metadata = {
-  title: 'Instinct Robotics | Computer Vision & Robotics',
+  title: 'Instinct Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
   icons: {
     icon: [
