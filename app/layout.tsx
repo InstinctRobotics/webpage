@@ -13,9 +13,12 @@ const orbitron = Orbitron({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://instinctrobotics.ai'),
+  metadataBase: new URL('https://www.instinctrobotics.ai'),
   title: 'Instinct Robotics',
   description: 'Innovative computer vision solutions for industrial robotics.',
+  alternates: {
+    canonical: './',
+  },
   verification: {
     google: 'So7ichSa38bUEiF4sx16pD3PHNpTe-wAwkPQZF5MFKg',
   },
@@ -50,9 +53,9 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Instinct Robotics',
-  url: 'https://instinctrobotics.ai',
-  logo: 'https://instinctrobotics.ai/logo.png',
-  image: 'https://instinctrobotics.ai/logo.png',
+  url: 'https://www.instinctrobotics.ai',
+  logo: 'https://www.instinctrobotics.ai/logo.png',
+  image: 'https://www.instinctrobotics.ai/logo.png',
   description: 'Innovative computer vision solutions for industrial robotics.',
 }
 
