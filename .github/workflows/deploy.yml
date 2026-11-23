@@ -1,53 +1,73 @@
-name: Deploy to Vercel
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Install Bitwarden Secrets Manager CLI
         run: |
-          curl -LO "https://github.com/bitwarden/sdk-sm/releases/download/bws-v1.0.0/bws-x86_64-unknown-linux-gnu-1.0.0.zip"
-          unzip bws-x86_64-unknown-linux-gnu-1.0.0.zip
+          curl -fsSLO "https://github.com/bitwarden/sdk-sm/releases/download/bws-v1.0.0/bws-x86_64-unknown-linux-gnu-1.0.0.zip"
+          unzip -q bws-x86_64-unknown-linux-gnu-1.0.0.zip
           sudo mv bws /usr/local/bin/
-          bws --version
-      
-      - name: Debug token
-        run: |
-          echo "Token length: ${#BWS_ACCESS_TOKEN}"
-          echo "Token prefix: ${BWS_ACCESS_TOKEN:0:10}"
+
+      # Il sito e' statico: le variabili NEXT_PUBLIC_* vengono incorporate nel build.
+      # Si esportano solo quelle: gli altri segreti del progetto non servono e non escono da Bitwarden.
+      - name: Load public build variables from Bitwarden
         env:
           BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
-
-      - name: Fetch All Secrets from Project
-        id: secrets_step
+          BWS_SERVER_URL: https://vault.bitwarden.eu
         run: |
-          echo "Identity URL: $BWS_IDENTITY_URL"
-          echo "API URL: $BWS_API_URL"
-          bws --version
-          bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0
-          SECRETS_JSON=$(bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0)
-          VERCEL_ENV_FLAGS=$(echo $SECRETS_JSON | jq -r '.[] | "--env \(.key)=\(.value)"' | tr '\n' ' ')
-          echo "VERCEL_FLAGS=$VERCEL_ENV_FLAGS" >> $GITHUB_ENV
-        env:
-          BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
-          BWS_IDENTITY_URL: https://vault.bitwarden.eu/identity
-          BWS_API_URL: https://vault.bitwarden.eu/api
+          set -euo pipefail
+          bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0 --server-url "$BWS_SERVER_URL" -o json \
+            | jq -r '.[] | select(.key | startswith("NEXT_PUBLIC_")) | [.key, (.value | @base64)] | @tsv' \
+            | while IFS=$'\t' read -r key b64; do
+                value=$(printf %s "$b64" | base64 -d)
+                echo "::add-mask::$value"
+                echo "$key=$value" >> "$GITHUB_ENV"
+                echo "loaded $key"
+              done
 
-      - name: Deploy to Vercel
-        run: |
-          npm install --global vercel
-          # Il comando usa i segreti di GitHub per l'autenticazione 
-          # e la variabile di Bitwarden per l'ambiente
-          vercel deploy --prod \
-            --token=${{ secrets.VERCEL_TOKEN }} \
-            --scope ${{ secrets.VERCEL_ORG_ID }} \
-            --id ${{ secrets.VERCEL_PROJECT_ID }} \
-            ${{ env.VERCEL_ENV_FLAGS }} \
-            --yes
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

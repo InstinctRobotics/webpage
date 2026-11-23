@@ -74,6 +74,21 @@
         "it": ""
       }
     },
+    "download": {
+      "title": {
+        "en": "Download the installer",
+        "it": "Scarica l'installer"
+      },
+      "description": {
+        "en": "RAPT-OS installer for Ubuntu 22.04 and 24.04 (64-bit). Installation requires an authorized account or an activation key.",
+        "it": "Installer di RAPT-OS per Ubuntu 22.04 e 24.04 (64 bit). L'installazione richiede un account autorizzato o una chiave di attivazione."
+      },
+      "cta": {
+        "en": "Download .deb",
+        "it": "Scarica .deb"
+      },
+      "url": "https://github.com/InstinctRobotics/webpage/releases/latest/download/rapt-os-installer_amd64.deb"
+    },
     "raptOsForm": {
       "title": {
         "en": "Request early access!",

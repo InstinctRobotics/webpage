@@ -1,6 +1,9 @@
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
+  // Esportazione statica: il sito e' pubblicato su GitHub Pages (nessun server Next).
+  output: 'export',
+  trailingSlash: true,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
@@ -10,6 +13,7 @@ const nextConfig: NextConfig = {
   },
   // Allow access to remote images.
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
