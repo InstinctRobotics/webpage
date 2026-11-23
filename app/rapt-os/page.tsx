@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Globe, ArrowLeft } from 'lucide-react'
+import { Globe, ArrowLeft, Download } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import company from '@/data/company.json'
@@ -51,6 +51,23 @@ export default function RaptOS() {
           </div>
         </div>
       </nav>
+
+      {/* Installer download */}
+      <section className="w-full flex-shrink-0 px-6 pt-8">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+          <div className="text-center md:text-left">
+            <h2 className="text-lg font-display font-bold text-white">{company.contact.download.title[lang]}</h2>
+            <p className="text-sm text-text/60 max-w-xl">{company.contact.download.description[lang]}</p>
+          </div>
+          <a
+            href={company.contact.download.url}
+            className="flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-xs font-bold uppercase tracking-widest text-white hover:opacity-90 transition-opacity whitespace-nowrap"
+          >
+            <Download size={14} />
+            {company.contact.download.cta[lang]}
+          </a>
+        </div>
+      </section>
 
       {/* Main Hero Contact Section */}
       <div className="flex-1 w-full flex flex-col">
