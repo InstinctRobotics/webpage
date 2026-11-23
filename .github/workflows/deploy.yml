@@ -41,7 +41,7 @@ jobs:
           BWS_SERVER_URL: https://vault.bitwarden.eu
         run: |
           set -euo pipefail
-          bws secret list e2a69413-8a1d-482d-9245-b42c00860ca0 --server-url "$BWS_SERVER_URL" -o json \
+          bws secret list d242380c-3c1e-4a27-a867-b4fe00eb94f0 --server-url "$BWS_SERVER_URL" -o json \
             | jq -r '.[] | select(.key | startswith("NEXT_PUBLIC_")) | [.key, (.value | @base64)] | @tsv' \
             | while IFS=$'\t' read -r key b64; do
                 value=$(printf %s "$b64" | base64 -d)
@@ -49,6 +49,8 @@ jobs:
                 echo "$key=$value" >> "$GITHUB_ENV"
                 echo "loaded $key"
               done
+          # Senza queste variabili il form di contatto non funziona: meglio fermare il deploy.
+          grep -q '^NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=' "$GITHUB_ENV" || { echo "::error::NEXT_PUBLIC_EMAILJS_PUBLIC_KEY non trovata nel progetto Bitwarden"; exit 1; }
 
       - name: Install dependencies
         run: npm ci
